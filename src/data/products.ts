@@ -57,8 +57,7 @@ export type Product = {
 export const getCategory = (slug: string): Category | undefined =>
   categories.find((c) => c.slug === slug);
 
-export const getCategoryName = (slug: CategorySlug) =>
-  getCategory(slug)?.name ?? slug;
+export const getCategoryName = (slug: CategorySlug) => getCategory(slug)?.name ?? slug;
 
 /**
  * I quattro prodotti più venduti restano in evidenza (featured: true).
@@ -165,8 +164,10 @@ export const products: Product[] = [
     slug: "limoncello-garzaia-mantua",
     name: "Limoncello Garzaia Mantua",
     category: "liquori-artigianali",
-    shortDescription: "Elisir Reale Limoncello Artigianale Regina Liquirizia, liquore al limone 30% vol prodotto a Pomponesco Mantova. Fresco, profumato e ideale da servire ghiacciato.",
-    fullDescription: "Elisir Reale Limoncello Artigianale Regina Liquirizia, liquore al limone 30% vol prodotto a Pomponesco Mantova. Fresco, profumato e ideale da servire ghiacciato.",
+    shortDescription:
+      "Elisir Reale Limoncello Artigianale Regina Liquirizia, liquore al limone 30% vol prodotto a Pomponesco Mantova. Fresco, profumato e ideale da servire ghiacciato.",
+    fullDescription:
+      "Elisir Reale Limoncello Artigianale Regina Liquirizia, liquore al limone 30% vol prodotto a Pomponesco Mantova. Fresco, profumato e ideale da servire ghiacciato.",
     price: 15,
     currency: "EUR",
     volume: "[DA CONFERMARE]",
@@ -201,8 +202,10 @@ export const products: Product[] = [
     slug: "liquore-alla-liquirizia-regina-liquirizia",
     name: "Liquore alla liquirizia regina liquirizia",
     category: "liquori-artigianali",
-    shortDescription: "Regina Liquirizia è un liquore artigianale alla liquirizia prodotto nel laboratorio di Pomponesco, Mantova. Intenso, morbido e persistente. Da gustare ben ghiacciato.",
-    fullDescription: "Regina Liquirizia è un liquore artigianale alla liquirizia prodotto nel laboratorio di Pomponesco, Mantova. Intenso, morbido e persistente. Da gustare ben ghiacciato.",
+    shortDescription:
+      "Regina Liquirizia è un liquore artigianale alla liquirizia prodotto nel laboratorio di Pomponesco, Mantova. Intenso, morbido e persistente. Da gustare ben ghiacciato.",
+    fullDescription:
+      "Regina Liquirizia è un liquore artigianale alla liquirizia prodotto nel laboratorio di Pomponesco, Mantova. Intenso, morbido e persistente. Da gustare ben ghiacciato.",
     price: 20,
     currency: "EUR",
     volume: "[DA CONFERMARE]",
@@ -219,8 +222,10 @@ export const products: Product[] = [
     slug: "liquore-bargnolino-artigianale",
     name: "Liquore Bargnolino artigianale",
     category: "liquori-artigianali",
-    shortDescription: "Liquore bargnolino artigianale ottenuto dall’infusione di prugnole selvatiche raccolte a piena maturazione. Prodotto nel laboratorio Regina Liquirizia di Pomponesco, Mantova.",
-    fullDescription: "Liquore bargnolino artigianale ottenuto dall’infusione di prugnole selvatiche raccolte a piena maturazione. Prodotto nel laboratorio Regina Liquirizia di Pomponesco, Mantova.",
+    shortDescription:
+      "Liquore bargnolino artigianale ottenuto dall’infusione di prugnole selvatiche raccolte a piena maturazione. Prodotto nel laboratorio Regina Liquirizia di Pomponesco, Mantova.",
+    fullDescription:
+      "Liquore bargnolino artigianale ottenuto dall’infusione di prugnole selvatiche raccolte a piena maturazione. Prodotto nel laboratorio Regina Liquirizia di Pomponesco, Mantova.",
     price: 18,
     currency: "EUR",
     volume: "[DA CONFERMARE]",
@@ -255,8 +260,10 @@ export const products: Product[] = [
     slug: "mentizia-liquore-liquirizia-menta",
     name: "Mentizia",
     category: "liquori-artigianali",
-    shortDescription: "Liquore alla liquirizia con note di menta d’acqua. 27% vol. Artigianale a Pomponesco (Mantova). Ispirato alla Garzaia di Pomponesco. Made in Italy.",
-    fullDescription: "Liquore alla liquirizia con note di menta d’acqua. 27% vol. Artigianale a Pomponesco (Mantova). Ispirato alla Garzaia di Pomponesco. Made in Italy.",
+    shortDescription:
+      "Liquore alla liquirizia con note di menta d’acqua. 27% vol. Artigianale a Pomponesco (Mantova). Ispirato alla Garzaia di Pomponesco. Made in Italy.",
+    fullDescription:
+      "Liquore alla liquirizia con note di menta d’acqua. 27% vol. Artigianale a Pomponesco (Mantova). Ispirato alla Garzaia di Pomponesco. Made in Italy.",
     price: 20,
     currency: "EUR",
     volume: "[DA CONFERMARE]",
@@ -291,8 +298,10 @@ export const products: Product[] = [
     slug: "nocino-della-bassa-mantova",
     name: "Nocino della Bassa Mantova",
     category: "liquori-artigianali",
-    shortDescription: "Nocino della Bassa Regina Liquirizia, liquore artigianale alle noci 30% vol prodotto a Pomponesco Mantova. Intenso, morbido e speziato.",
-    fullDescription: "Nocino della Bassa Regina Liquirizia, liquore artigianale alle noci 30% vol prodotto a Pomponesco Mantova. Intenso, morbido e speziato.",
+    shortDescription:
+      "Nocino della Bassa Regina Liquirizia, liquore artigianale alle noci 30% vol prodotto a Pomponesco Mantova. Intenso, morbido e speziato.",
+    fullDescription:
+      "Nocino della Bassa Regina Liquirizia, liquore artigianale alle noci 30% vol prodotto a Pomponesco Mantova. Intenso, morbido e speziato.",
     price: 20,
     currency: "EUR",
     volume: "[DA CONFERMARE]",
@@ -345,8 +354,10 @@ export const products: Product[] = [
     slug: "cream-liqueur-melone-17",
     name: "Cream Liqueur Melone 17%",
     category: "creme-liquorose-artigianali",
-    shortDescription: "Cream Liqueur al melone, prodotto artigianalmente a Mantova: 50 cl, 17% vol. Dolcezza vellutata da gustare liscia, con ghiaccio o in dessert.",
-    fullDescription: "Cream Liqueur al melone, prodotto artigianalmente a Mantova: 50 cl, 17% vol. Dolcezza vellutata da gustare liscia, con ghiaccio o in dessert.",
+    shortDescription:
+      "Cream Liqueur al melone, prodotto artigianalmente a Mantova: 50 cl, 17% vol. Dolcezza vellutata da gustare liscia, con ghiaccio o in dessert.",
+    fullDescription:
+      "Cream Liqueur al melone, prodotto artigianalmente a Mantova: 50 cl, 17% vol. Dolcezza vellutata da gustare liscia, con ghiaccio o in dessert.",
     price: 18,
     currency: "EUR",
     volume: "[DA CONFERMARE]",
@@ -363,8 +374,10 @@ export const products: Product[] = [
     slug: "crema-whisky-mantua",
     name: "Crema whisky Mantua original",
     category: "creme-liquorose-artigianali",
-    shortDescription: "Mantuà Crema al Whisky è una crema liquorosa artigianale della collezione Regina Spirits. Profilo morbido, vellutato e avvolgente. 50 cl, 17% vol. Prodotto a Pomponesco, Mantova.",
-    fullDescription: "Mantuà Crema al Whisky è una crema liquorosa artigianale della collezione Regina Spirits. Profilo morbido, vellutato e avvolgente. 50 cl, 17% vol. Prodotto a Pomponesco, Mantova.",
+    shortDescription:
+      "Mantuà Crema al Whisky è una crema liquorosa artigianale della collezione Regina Spirits. Profilo morbido, vellutato e avvolgente. 50 cl, 17% vol. Prodotto a Pomponesco, Mantova.",
+    fullDescription:
+      "Mantuà Crema al Whisky è una crema liquorosa artigianale della collezione Regina Spirits. Profilo morbido, vellutato e avvolgente. 50 cl, 17% vol. Prodotto a Pomponesco, Mantova.",
     price: 16.9,
     currency: "EUR",
     volume: "50 cl",
@@ -381,8 +394,10 @@ export const products: Product[] = [
     slug: "liquore-al-cioccolato",
     name: "Liquore al Cioccolato",
     category: "creme-liquorose-artigianali",
-    shortDescription: "Cream Liqueur al Cioccolato: liquore cremoso artigianale della collezione R. Spirits. Cacao e cioccolato selezionati in una texture vellutata. 50 cl, 17% vol. Prodotto a Pomponesco, Mantova.",
-    fullDescription: "Cream Liqueur al Cioccolato: liquore cremoso artigianale della collezione R. Spirits. Cacao e cioccolato selezionati in una texture vellutata. 50 cl, 17% vol. Prodotto a Pomponesco, Mantova.",
+    shortDescription:
+      "Cream Liqueur al Cioccolato: liquore cremoso artigianale della collezione R. Spirits. Cacao e cioccolato selezionati in una texture vellutata. 50 cl, 17% vol. Prodotto a Pomponesco, Mantova.",
+    fullDescription:
+      "Cream Liqueur al Cioccolato: liquore cremoso artigianale della collezione R. Spirits. Cacao e cioccolato selezionati in una texture vellutata. 50 cl, 17% vol. Prodotto a Pomponesco, Mantova.",
     price: 14.9,
     currency: "EUR",
     volume: "50 cl",
@@ -399,8 +414,10 @@ export const products: Product[] = [
     slug: "liquore-al-pistacchio",
     name: "Liquore al Pistacchio",
     category: "creme-liquorose-artigianali",
-    shortDescription: "Liquorificio artigianale di Pomponesco (Mantova). Selezione di liquori, creme, distillati e prodotti tipici mantovani.",
-    fullDescription: "Liquorificio artigianale di Pomponesco (Mantova). Selezione di liquori, creme, distillati e prodotti tipici mantovani.",
+    shortDescription:
+      "Liquorificio artigianale di Pomponesco (Mantova). Selezione di liquori, creme, distillati e prodotti tipici mantovani.",
+    fullDescription:
+      "Liquorificio artigianale di Pomponesco (Mantova). Selezione di liquori, creme, distillati e prodotti tipici mantovani.",
     price: 15.9,
     currency: "EUR",
     volume: "[DA CONFERMARE]",
@@ -435,8 +452,10 @@ export const products: Product[] = [
     slug: "amaro-di-pomponesco-arigianale",
     name: "AMARO DI POMPONESCO Artigianale",
     category: "amari-artigianali",
-    shortDescription: "Amaro artigianale della Linea Garzaia ispirato alla Città Ideale di Giulio Cesare Gonzaga. Note agrumate, erbacee, floreali e delicati richiami di cannella.",
-    fullDescription: "Amaro artigianale della Linea Garzaia ispirato alla Città Ideale di Giulio Cesare Gonzaga. Note agrumate, erbacee, floreali e delicati richiami di cannella.",
+    shortDescription:
+      "Amaro artigianale della Linea Garzaia ispirato alla Città Ideale di Giulio Cesare Gonzaga. Note agrumate, erbacee, floreali e delicati richiami di cannella.",
+    fullDescription:
+      "Amaro artigianale della Linea Garzaia ispirato alla Città Ideale di Giulio Cesare Gonzaga. Note agrumate, erbacee, floreali e delicati richiami di cannella.",
     price: 23,
     currency: "EUR",
     volume: "[DA CONFERMARE]",
@@ -453,8 +472,10 @@ export const products: Product[] = [
     slug: "ferox-amaro-artigianale",
     name: "FEROX amaro artigianale",
     category: "amari-artigianali",
-    shortDescription: "Amaro artigianale intenso da 39% vol con erbe officinali, radici, spezie e note balsamiche persistenti.",
-    fullDescription: "Amaro artigianale intenso da 39% vol con erbe officinali, radici, spezie e note balsamiche persistenti.",
+    shortDescription:
+      "Amaro artigianale intenso da 39% vol con erbe officinali, radici, spezie e note balsamiche persistenti.",
+    fullDescription:
+      "Amaro artigianale intenso da 39% vol con erbe officinali, radici, spezie e note balsamiche persistenti.",
     price: 28,
     currency: "EUR",
     volume: "[DA CONFERMARE]",
@@ -471,8 +492,10 @@ export const products: Product[] = [
     slug: "forestiero-amaro-artigianale",
     name: "FORESTIERO Amaro Artigianale",
     category: "amari-artigianali",
-    shortDescription: "FORESTIERO Amaro Artigianale è un amaro dal profilo erbaceo, agrumato e speziato, ideale da gustare fresco o con ghiaccio.",
-    fullDescription: "FORESTIERO Amaro Artigianale è un amaro dal profilo erbaceo, agrumato e speziato, ideale da gustare fresco o con ghiaccio.",
+    shortDescription:
+      "FORESTIERO Amaro Artigianale è un amaro dal profilo erbaceo, agrumato e speziato, ideale da gustare fresco o con ghiaccio.",
+    fullDescription:
+      "FORESTIERO Amaro Artigianale è un amaro dal profilo erbaceo, agrumato e speziato, ideale da gustare fresco o con ghiaccio.",
     price: 30,
     currency: "EUR",
     volume: "[DA CONFERMARE]",
@@ -489,8 +512,10 @@ export const products: Product[] = [
     slug: "maul-amaro-artigianale",
     name: "MAUL Amaro Artigianale",
     category: "amari-artigianali",
-    shortDescription: "MAUL Amaro Artigianale è un amaro intenso, erbaceo e balsamico ispirato al rugby e allo spirito del terzo tempo.",
-    fullDescription: "MAUL Amaro Artigianale è un amaro intenso, erbaceo e balsamico ispirato al rugby e allo spirito del terzo tempo.",
+    shortDescription:
+      "MAUL Amaro Artigianale è un amaro intenso, erbaceo e balsamico ispirato al rugby e allo spirito del terzo tempo.",
+    fullDescription:
+      "MAUL Amaro Artigianale è un amaro intenso, erbaceo e balsamico ispirato al rugby e allo spirito del terzo tempo.",
     price: 25,
     currency: "EUR",
     volume: "[DA CONFERMARE]",
@@ -507,8 +532,10 @@ export const products: Product[] = [
     slug: "portovecchio-amaro-artigianale",
     name: "PORTOVECCHIO Amaro Artigianale",
     category: "amari-artigianali",
-    shortDescription: "Amaro artigianale a 21% vol con note di liquirizia, richiami erbacei e una delicata sfumatura salina. Morbido, equilibrato e ideale da gustare fresco o con ghiaccio.",
-    fullDescription: "Amaro artigianale a 21% vol con note di liquirizia, richiami erbacei e una delicata sfumatura salina. Morbido, equilibrato e ideale da gustare fresco o con ghiaccio.",
+    shortDescription:
+      "Amaro artigianale a 21% vol con note di liquirizia, richiami erbacei e una delicata sfumatura salina. Morbido, equilibrato e ideale da gustare fresco o con ghiaccio.",
+    fullDescription:
+      "Amaro artigianale a 21% vol con note di liquirizia, richiami erbacei e una delicata sfumatura salina. Morbido, equilibrato e ideale da gustare fresco o con ghiaccio.",
     price: 20,
     currency: "EUR",
     volume: "[DA CONFERMARE]",
@@ -525,8 +552,10 @@ export const products: Product[] = [
     slug: "veliero-amaro-artigianale",
     name: "VELIERO Amaro Artigianale",
     category: "amari-artigianali",
-    shortDescription: "Liquorificio artigianale specializzato nella produzione di amari, liquori, gin e prodotti alla liquirizia.",
-    fullDescription: "Liquorificio artigianale specializzato nella produzione di amari, liquori, gin e prodotti alla liquirizia.",
+    shortDescription:
+      "Liquorificio artigianale specializzato nella produzione di amari, liquori, gin e prodotti alla liquirizia.",
+    fullDescription:
+      "Liquorificio artigianale specializzato nella produzione di amari, liquori, gin e prodotti alla liquirizia.",
     price: 23,
     currency: "EUR",
     volume: "[DA CONFERMARE]",
@@ -543,8 +572,10 @@ export const products: Product[] = [
     slug: "46100-gin-premium",
     name: "46100 GIN PREMIUM",
     category: "gin-artigianali",
-    shortDescription: "46100 Gin Premium è il gin artigianale firmato Regina Spirits, nato nel cuore della pianura mantovana. Profilo balsamico, speziato ed elegante con ginepro, cardamomo, coriandolo e cinque botaniche selezionate.",
-    fullDescription: "46100 Gin Premium è il gin artigianale firmato Regina Spirits, nato nel cuore della pianura mantovana. Profilo balsamico, speziato ed elegante con ginepro, cardamomo, coriandolo e cinque botaniche selezionate.",
+    shortDescription:
+      "46100 Gin Premium è il gin artigianale firmato Regina Spirits, nato nel cuore della pianura mantovana. Profilo balsamico, speziato ed elegante con ginepro, cardamomo, coriandolo e cinque botaniche selezionate.",
+    fullDescription:
+      "46100 Gin Premium è il gin artigianale firmato Regina Spirits, nato nel cuore della pianura mantovana. Profilo balsamico, speziato ed elegante con ginepro, cardamomo, coriandolo e cinque botaniche selezionate.",
     price: 30,
     currency: "EUR",
     volume: "70 cl",
@@ -615,8 +646,10 @@ export const products: Product[] = [
     slug: "gin-mincio-menta-lime",
     name: "Gin Mincio Menta & Lime",
     category: "gin-artigianali",
-    shortDescription: "Gin Mincio Menta & Lime è il gin botanico artigianale firmato Regina Spirits. Profilo fresco e agrumato con ginepro, lime e menta. 50 cl, 40% vol.",
-    fullDescription: "Gin Mincio Menta & Lime è il gin botanico artigianale firmato Regina Spirits. Profilo fresco e agrumato con ginepro, lime e menta. 50 cl, 40% vol.",
+    shortDescription:
+      "Gin Mincio Menta & Lime è il gin botanico artigianale firmato Regina Spirits. Profilo fresco e agrumato con ginepro, lime e menta. 50 cl, 40% vol.",
+    fullDescription:
+      "Gin Mincio Menta & Lime è il gin botanico artigianale firmato Regina Spirits. Profilo fresco e agrumato con ginepro, lime e menta. 50 cl, 40% vol.",
     price: 35,
     currency: "EUR",
     volume: "50 cl",
@@ -687,8 +720,10 @@ export const products: Product[] = [
     slug: "gin-root-liquorice-mantova",
     name: "Gin Root Liquorice Mantua",
     category: "gin-artigianali",
-    shortDescription: "Gin Root Liquorice è il primo gin botanico artigianale firmato Regina Spirits, nato dall’infusione di radice di liquirizia con ginepro e botaniche selezionate. 50 cl, 40% vol.",
-    fullDescription: "Gin Root Liquorice è il primo gin botanico artigianale firmato Regina Spirits, nato dall’infusione di radice di liquirizia con ginepro e botaniche selezionate. 50 cl, 40% vol.",
+    shortDescription:
+      "Gin Root Liquorice è il primo gin botanico artigianale firmato Regina Spirits, nato dall’infusione di radice di liquirizia con ginepro e botaniche selezionate. 50 cl, 40% vol.",
+    fullDescription:
+      "Gin Root Liquorice è il primo gin botanico artigianale firmato Regina Spirits, nato dall’infusione di radice di liquirizia con ginepro e botaniche selezionate. 50 cl, 40% vol.",
     price: 35,
     currency: "EUR",
     volume: "50 cl",
@@ -705,8 +740,10 @@ export const products: Product[] = [
     slug: "lotus-gin-con-fiore-di-loto",
     name: "Lotus Gin con fiore di loto",
     category: "gin-artigianali",
-    shortDescription: "Lotus Gin è il gin botanico artigianale firmato Regina Spirits con fiore di loto. Profilo floreale, morbido e setoso. 50 cl, 40% vol.",
-    fullDescription: "Lotus Gin è il gin botanico artigianale firmato Regina Spirits con fiore di loto. Profilo floreale, morbido e setoso. 50 cl, 40% vol.",
+    shortDescription:
+      "Lotus Gin è il gin botanico artigianale firmato Regina Spirits con fiore di loto. Profilo floreale, morbido e setoso. 50 cl, 40% vol.",
+    fullDescription:
+      "Lotus Gin è il gin botanico artigianale firmato Regina Spirits con fiore di loto. Profilo floreale, morbido e setoso. 50 cl, 40% vol.",
     price: 45,
     currency: "EUR",
     volume: "50 cl",
@@ -723,8 +760,10 @@ export const products: Product[] = [
     slug: "melon-gin-mantuan-botanical",
     name: "Melon Gin Mantuan Botanical",
     category: "gin-artigianali",
-    shortDescription: "Melon Gin è il gin botanico artigianale firmato Regina Spirits. Profilo fruttato e fresco con infuso naturale di melone, ginepro e botaniche selezionate. 50 cl, 40% vol.",
-    fullDescription: "Melon Gin è il gin botanico artigianale firmato Regina Spirits. Profilo fruttato e fresco con infuso naturale di melone, ginepro e botaniche selezionate. 50 cl, 40% vol.",
+    shortDescription:
+      "Melon Gin è il gin botanico artigianale firmato Regina Spirits. Profilo fruttato e fresco con infuso naturale di melone, ginepro e botaniche selezionate. 50 cl, 40% vol.",
+    fullDescription:
+      "Melon Gin è il gin botanico artigianale firmato Regina Spirits. Profilo fruttato e fresco con infuso naturale di melone, ginepro e botaniche selezionate. 50 cl, 40% vol.",
     price: 35,
     currency: "EUR",
     volume: "50 cl",
@@ -735,7 +774,7 @@ export const products: Product[] = [
     servingSuggestions: ["[DA CONFERMARE]"],
     available: true,
     featured: false,
-  }
+  },
 ];
 
 export const featuredProducts = products.filter((p) => p.featured);

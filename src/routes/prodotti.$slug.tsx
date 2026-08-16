@@ -11,13 +11,21 @@ export const Route = createFileRoute("/prodotti/$slug")({
   },
   head: ({ loaderData, params }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Prodotto non trovato — Regina Spirits" }, { name: "robots", content: "noindex" }] };
+      return {
+        meta: [
+          { title: "Prodotto non trovato — Regina Spirits" },
+          { name: "robots", content: "noindex" },
+        ],
+      };
     }
     const { product } = loaderData;
     return {
       meta: [
         { title: `${product.name} — Regina Spirits` },
-        { name: "description", content: `${getCategoryName(product.category)}. ${product.shortDescription}` },
+        {
+          name: "description",
+          content: `${getCategoryName(product.category)}. ${product.shortDescription}`,
+        },
         { property: "og:title", content: `${product.name} — Regina Spirits` },
         { property: "og:description", content: product.shortDescription },
         { property: "og:type", content: "product" },

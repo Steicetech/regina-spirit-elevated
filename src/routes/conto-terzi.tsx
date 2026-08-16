@@ -52,18 +52,14 @@ function ContoTerzi() {
 
   return (
     <div className="pb-24">
-      <PageHeader
-        eyebrow="Conto terzi"
-        title="Produzione conto terzi"
-        intro={contoTerziIntro}
-      />
+      <PageHeader eyebrow="Conto terzi" title="Produzione conto terzi" intro={contoTerziIntro} />
 
       <div className="page-x mx-auto max-w-[1440px] grid gap-14 md:grid-cols-12">
         <Reveal className="md:col-span-5">
           <h2 className="display-md">Parliamo del tuo progetto</h2>
           <p className="measure mt-6 text-sm text-muted-foreground">
-            Quantità minime, tempistiche, capacità produttiva e condizioni commerciali sono
-            [DA CONFERMARE] e vengono definite caso per caso.
+            Quantità minime, tempistiche, capacità produttiva e condizioni commerciali sono [DA
+            CONFERMARE] e vengono definite caso per caso.
           </p>
         </Reveal>
 
@@ -148,8 +144,7 @@ function ContoTerzi() {
               </button>
               <p aria-live="polite" className="mt-4 min-h-5 text-sm">
                 {status === "done" && "Grazie, abbiamo ricevuto la tua richiesta."}
-                {status === "error" &&
-                  `Controlla i campi obbligatori: ${errors.join(", ")}.`}
+                {status === "error" && `Controlla i campi obbligatori: ${errors.join(", ")}.`}
               </p>
             </div>
           </form>

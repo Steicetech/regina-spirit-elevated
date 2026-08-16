@@ -4,13 +4,7 @@ import cocktail from "@/assets/cocktail.jpg";
 import mani from "@/assets/mani.jpg";
 
 export type StoryCategory =
-  | "prodotti"
-  | "laboratorio"
-  | "Mantova"
-  | "aperitivo"
-  | "cocktail"
-  | "persone"
-  | "conto terzi";
+  "prodotti" | "laboratorio" | "Mantova" | "aperitivo" | "cocktail" | "persone" | "conto terzi";
 
 export type Story = {
   slug: string;

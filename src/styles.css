@@ -35,7 +35,7 @@
   --color-botanico: var(--botanico);
   --color-ambra: var(--ambra);
   --color-ink: var(--ink);
-  --font-display: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -108,9 +108,9 @@
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.025em;
-    line-height: 1.05;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
     text-wrap: balance;
   }
 
@@ -121,13 +121,13 @@
 }
 
 @utility display-xl {
-  font-size: clamp(2.375rem, 1.6rem + 5.4vw, 6.875rem);
+  font-size: clamp(2.25rem, 1.5rem + 4.6vw, 6rem);
 }
 @utility display-lg {
-  font-size: clamp(2.125rem, 1.5rem + 3.4vw, 4.5rem);
+  font-size: clamp(1.95rem, 1.4rem + 2.9vw, 3.95rem);
 }
 @utility display-md {
-  font-size: clamp(1.75rem, 1.35rem + 2vw, 3rem);
+  font-size: clamp(1.625rem, 1.25rem + 1.7vw, 2.65rem);
 }
 @utility eyebrow {
   font-family: var(--font-sans);

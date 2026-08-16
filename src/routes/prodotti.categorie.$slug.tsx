@@ -11,7 +11,12 @@ export const Route = createFileRoute("/prodotti/categorie/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Categoria non trovata — Regina Spirits" }, { name: "robots", content: "noindex" }] };
+      return {
+        meta: [
+          { title: "Categoria non trovata — Regina Spirits" },
+          { name: "robots", content: "noindex" },
+        ],
+      };
     }
     const { category } = loaderData;
     return {

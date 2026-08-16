@@ -10,7 +10,10 @@ export function CategoryGrid({
   title?: string;
 }) {
   return (
-    <section aria-labelledby="categorie-title" className="page-x mx-auto max-w-[1440px] border-t border-border py-16 md:py-24">
+    <section
+      aria-labelledby="categorie-title"
+      className="page-x mx-auto max-w-[1440px] border-t border-border py-16 md:py-24"
+    >
       <Reveal>
         <p className="eyebrow">{eyebrow}</p>
         <h2 id="categorie-title" className="display-lg mt-6 max-w-[14ch]">
@@ -34,7 +37,9 @@ export function CategoryGrid({
                 <p className="eyebrow" style={{ color: category.accentColor }}>
                   {count} prodotti
                 </p>
-                <h3 className="mt-4 font-display text-2xl tracking-tight">{category.name}</h3>
+                <h3 className="mt-4 font-display text-2xl font-normal tracking-tight">
+                  {category.name}
+                </h3>
                 <p className="mt-3 flex-1 text-sm text-muted-foreground">{category.description}</p>
                 <span className="mt-8 inline-flex min-h-10 items-center text-sm underline underline-offset-8 decoration-bronzo">
                   Scopri

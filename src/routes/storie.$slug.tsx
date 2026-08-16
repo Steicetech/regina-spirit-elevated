@@ -10,7 +10,10 @@ export const Route = createFileRoute("/storie/$slug")({
   head: ({ loaderData, params }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Storia non trovata — Regina Spirits" }, { name: "robots", content: "noindex" }],
+        meta: [
+          { title: "Storia non trovata — Regina Spirits" },
+          { name: "robots", content: "noindex" },
+        ],
       };
     }
     const { story } = loaderData;

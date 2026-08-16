@@ -63,7 +63,10 @@ function Checkout() {
           <div className="max-w-xl">
             <ul className="divide-y divide-border border-y border-border">
               {items.map(({ product, quantity }) => (
-                <li key={product.id} className="flex items-center justify-between gap-4 py-4 text-sm">
+                <li
+                  key={product.id}
+                  className="flex items-center justify-between gap-4 py-4 text-sm"
+                >
                   <span className="min-w-0 truncate">
                     {product.name} × {quantity}
                   </span>

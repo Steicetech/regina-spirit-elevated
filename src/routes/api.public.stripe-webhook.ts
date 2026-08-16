@@ -20,11 +20,7 @@ export const Route = createFileRoute("/api/public/stripe-webhook")({
         const stripe = new Stripe(secret);
 
         try {
-          const event = await stripe.webhooks.constructEventAsync(
-            body,
-            signature,
-            webhookSecret,
-          );
+          const event = await stripe.webhooks.constructEventAsync(body, signature, webhookSecret);
           if (event.type === "checkout.session.completed") {
             // Punto di aggancio per l'e-commerce attuale di Regina Spirits.
             console.log("Pagamento di test completato:", event.id);

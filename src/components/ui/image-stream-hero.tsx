@@ -95,8 +95,7 @@ function keyframes(dir: 1 | -1, name: string, p: Required<CorridorPath>) {
     const u = s / p.stops;
     // Geometric in apparent size, so consecutive cards keep a constant size
     // ratio and the ribbon stays solid at both ends.
-    const scale =
-      (p.birthHeight / p.cardHeight) * Math.pow(p.exitHeight / p.birthHeight, u);
+    const scale = (p.birthHeight / p.cardHeight) * Math.pow(p.exitHeight / p.birthHeight, u);
     const z = p.perspective * (1 - 1 / scale);
     const rail = p.railExit - (p.railExit - p.railBirth) * Math.pow(1 - u, p.fan);
     const turn = p.turnBirth + (p.turnExit - p.turnBirth) * u;

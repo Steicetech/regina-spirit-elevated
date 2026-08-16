@@ -29,7 +29,8 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
     if (!secret.startsWith("sk_test_")) {
       return {
         ok: false as const,
-        error: "Sono ammesse solo chiavi Stripe di test (sk_test_...). Pagamenti reali disattivati.",
+        error:
+          "Sono ammesse solo chiavi Stripe di test (sk_test_...). Pagamenti reali disattivati.",
       };
     }
 

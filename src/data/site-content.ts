@@ -3,8 +3,7 @@ export const site = {
   claim: "Mantova da Gustare",
   domain: "reginaspirits.com",
   eyebrow: "Liquorificio artigianale · Mantova",
-  descrizione:
-    "Dal 2004, gin, aperitivi e liquori creati nel nostro laboratorio di Pomponesco.",
+  descrizione: "Dal 2004, gin, aperitivi e liquori creati nel nostro laboratorio di Pomponesco.",
   citta: "Pomponesco, Mantova",
   socialHandle: "[DA CONFERMARE]",
 };

@@ -24,7 +24,7 @@ export function ProductCard({ product, delay = 0 }: { product: Product; delay?: 
         />
       </Link>
       <p className="eyebrow mt-5">{getCategoryName(product.category)}</p>
-      <h2 className="mt-2 font-display text-2xl">{product.name}</h2>
+      <h2 className="mt-2 font-display text-2xl font-normal tracking-tight">{product.name}</h2>
       <p className="mt-2 text-sm text-muted-foreground">
         {product.volume} · {product.alcohol}
       </p>

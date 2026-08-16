@@ -70,7 +70,10 @@ export function NewsletterForm({ variant = "light" }: { variant?: "light" | "dar
 
       <p
         aria-live="polite"
-        className={cn("mt-3 min-h-5 text-xs", dark ? "text-background/70" : "text-muted-foreground")}
+        className={cn(
+          "mt-3 min-h-5 text-xs",
+          dark ? "text-background/70" : "text-muted-foreground",
+        )}
       >
         {status === "done" && "Grazie, iscrizione registrata."}
         {status === "error" && "Inserisci un'email valida e presta il consenso."}

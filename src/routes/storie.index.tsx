@@ -27,7 +27,11 @@ function StoriePage() {
 
   return (
     <div className="pb-24">
-      <PageHeader eyebrow="Editoriale" title="Storie" intro="Prodotti, laboratorio, Mantova, aperitivo, cocktail, persone e conto terzi." />
+      <PageHeader
+        eyebrow="Editoriale"
+        title="Storie"
+        intro="Prodotti, laboratorio, Mantova, aperitivo, cocktail, persone e conto terzi."
+      />
 
       <div className="page-x mx-auto max-w-[1440px]">
         <div className="-mx-1 flex snap-x gap-2 overflow-x-auto pb-2">
