@@ -4,7 +4,7 @@ import { Play } from "lucide-react";
 
 export function SocialSection() {
   return (
-    <section className="page-x mx-auto max-w-[1440px] border-t border-border py-24 md:py-32">
+    <section className="page-x mx-auto max-w-[1440px] border-t border-border py-16 md:py-24">
       <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
         <Reveal>
           <p className="eyebrow eyebrow-rule">Social</p>

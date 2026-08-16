@@ -7,7 +7,7 @@ import mani from "@/assets/mani.jpg";
 
 export function LabSection() {
   return (
-    <section className="bg-ink py-24 text-background md:py-36">
+    <section className="bg-ink py-16 text-background md:py-24">
       <div className="page-x mx-auto max-w-[1440px]">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">

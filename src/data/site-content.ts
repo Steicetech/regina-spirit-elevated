@@ -35,6 +35,49 @@ export const aboutIntro =
 export const labIntro =
   "Il laboratorio è il centro di tutto: qui nascono le ricette, si scelgono gli ingredienti e si seguono le produzioni, una alla volta.";
 
+export const timeline = [
+  { year: "2004", text: "Nasce il liquorificio artigianale a Pomponesco." },
+  {
+    year: "[DA CONFERMARE]",
+    text: "Entra in catalogo il primo gin prodotto in laboratorio [DA CONFERMARE].",
+  },
+  {
+    year: "[DA CONFERMARE]",
+    text: "Si apre la produzione conto terzi per aziende e professionisti [DA CONFERMARE].",
+  },
+  {
+    year: "[DA CONFERMARE]",
+    text: "Si amplia la gamma di amari, liquori e creme della Bassa [DA CONFERMARE].",
+  },
+];
+
+export const keyFigures = [
+  { value: "22", label: "Anni di attività", note: "Dal 2004 a Pomponesco" },
+  { value: "[DA CONFERMARE]", label: "Ricette", note: "In laboratorio" },
+  { value: "[DA CONFERMARE]", label: "Lotti all'anno", note: "Produzione artigianale" },
+  { value: "36", label: "Prodotti a catalogo", note: "Quattro famiglie" },
+];
+
+export const processCopy = {
+  title: "Macerazione, riposo, imbottigliamento",
+  intro:
+    "Ogni bottiglia passa dalle stesse tre fasi. I tempi e gli ingredienti restano quelli del laboratorio, non di una linea industriale.",
+  steps: [
+    {
+      title: "Macerazione",
+      text: "Botaniche, agrumi e materie prime della Bassa restano a contatto con l'alcool per il tempo della ricetta [DA CONFERMARE].",
+    },
+    {
+      title: "Riposo",
+      text: "Il liquido si ferma, si affina e trova equilibrio prima di qualsiasi filtrazione [DA CONFERMARE].",
+    },
+    {
+      title: "Imbottigliamento",
+      text: "Lotti piccoli, etichetta e tappo a mano, tracciabilità di ogni bottiglia [DA CONFERMARE].",
+    },
+  ],
+};
+
 export const contoTerziIntro =
   "Regina Spirits dispone di un laboratorio proprio e sviluppa prodotti per terzi. Accogliamo richieste da aziende e professionisti.";
 

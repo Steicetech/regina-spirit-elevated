@@ -13,7 +13,7 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <header className="page-x mx-auto max-w-[1440px] pb-10 pt-32 md:pt-44">
+    <header className="page-x mx-auto max-w-[1440px] pb-8 pt-28 md:pt-36">
       <Reveal>
         <p className="eyebrow eyebrow-rule">{eyebrow}</p>
         <h1 className="display-lg mt-6 max-w-[16ch]">{title}</h1>

@@ -5,7 +5,7 @@ import cocktail from "@/assets/cocktail.jpg";
 
 export function MantovaSection() {
   return (
-    <section className="page-x mx-auto max-w-[1440px] py-24 md:py-36">
+    <section className="page-x mx-auto max-w-[1440px] py-16 md:py-24">
       <Reveal>
         <p className="eyebrow eyebrow-rule">Territorio</p>
         <h2 className="display-lg mt-6 max-w-[14ch]">Mantova da Gustare</h2>

@@ -5,7 +5,7 @@ export function AwardsSection() {
   if (!showAwardsSection || verifiedAwards.length === 0) return null;
 
   return (
-    <section className="page-x mx-auto max-w-[1440px] border-t border-border py-24">
+    <section className="page-x mx-auto max-w-[1440px] border-t border-border py-16">
       <Reveal>
         <p className="eyebrow eyebrow-rule">Riconoscimenti</p>
         <h2 className="display-md mt-5">Premi</h2>

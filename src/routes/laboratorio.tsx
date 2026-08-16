@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/layout/PageHeader";
+import { KeyFigures, ProcessBlock, Timeline } from "@/components/sections/InstitutionalStory";
 import { MaskReveal, Reveal } from "@/components/motion/Reveal";
 import { ImageStreamHero } from "@/components/ui/image-stream-hero";
 import { Button } from "@/components/ui/button";
@@ -26,15 +27,9 @@ export const Route = createFileRoute("/laboratorio")({
   component: Laboratorio,
 });
 
-const blocchi = [
-  { titolo: "Processo", testo: "Descrizione del processo [DA CONFERMARE]." },
-  { titolo: "Ingredienti", testo: "Selezione degli ingredienti [DA CONFERMARE]." },
-  { titolo: "Squadra", testo: "Le persone del laboratorio [DA CONFERMARE]." },
-];
-
 function Laboratorio() {
   return (
-    <div className="pb-24">
+    <div className="pb-16 md:pb-24">
       <PageHeader eyebrow="Laboratorio" title="Il luogo dove nasce tutto" intro={labIntro} />
       <ImageStreamHero
         images={[
@@ -49,27 +44,11 @@ function Laboratorio() {
         className="mx-auto mt-6 h-[52vh] min-h-[320px] w-full bg-ink md:h-[62vh]"
       />
       <div className="page-x mx-auto max-w-[1440px]">
-        <MaskReveal>
-          <img
-            src={laboratorio}
-            alt="Alambicco in rame nel laboratorio"
-            width={1600}
-            height={1100}
-            loading="lazy"
-            className="mt-8 aspect-[16/9] w-full rounded-sm object-cover"
-          />
-        </MaskReveal>
+        <KeyFigures />
+        <ProcessBlock image={laboratorio} imageAlt="Alambicco in rame nel laboratorio" flip />
+        <Timeline />
 
-        <ul className="mt-20 grid gap-10 border-t border-border pt-10 md:grid-cols-3">
-          {blocchi.map((b, i) => (
-            <Reveal as="li" key={b.titolo} delay={i * 0.06}>
-              <h2 className="font-display text-xl">{b.titolo}</h2>
-              <p className="mt-3 text-sm text-muted-foreground">{b.testo}</p>
-            </Reveal>
-          ))}
-        </ul>
-
-        <div className="mt-16 grid gap-5 md:grid-cols-2">
+        <div className="grid gap-5 py-12 md:grid-cols-2 md:py-16">
           <MaskReveal>
             <img
               src={mani}
@@ -92,11 +71,16 @@ function Laboratorio() {
           </MaskReveal>
         </div>
 
-        <div className="mt-16 border-t border-border pt-10">
-          <Button asChild variant="brand" size="lg">
+        <Reveal className="border-t border-border py-12 md:py-16">
+          <p className="eyebrow eyebrow-rule">Conto terzi</p>
+          <h2 className="display-md mt-6 max-w-[14ch]">Il laboratorio si apre.</h2>
+          <p className="measure mt-6 text-muted-foreground">
+            Capacità, ingredienti e tempi di produzione per i progetti conto terzi [DA CONFERMARE].
+          </p>
+          <Button asChild variant="brand" size="lg" className="mt-8">
             <Link to="/conto-terzi">Produzione conto terzi</Link>
           </Button>
-        </div>
+        </Reveal>
       </div>
     </div>
   );

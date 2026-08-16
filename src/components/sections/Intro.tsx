@@ -4,7 +4,7 @@ import laboratorio from "@/assets/laboratorio.jpg";
 
 export function Intro() {
   return (
-    <section className="page-x mx-auto max-w-[1440px] py-24 md:py-36">
+    <section className="page-x mx-auto max-w-[1440px] py-16 md:py-24">
       <div className="grid gap-14 md:grid-cols-12 md:gap-10">
         <div className="md:col-span-7">
           <Reveal>
