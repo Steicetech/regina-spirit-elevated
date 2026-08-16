@@ -1,11 +1,27 @@
 import { Link } from "@tanstack/react-router";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { featuredProducts, formatPrice, type Product } from "@/data/products";
-import { site } from "@/data/site-content";
+import { featuredProducts, formatPrice, getCategoryName, type Product } from "@/data/products";
 import { AddToCartButton } from "@/components/commerce/AddToCartButton";
+import { CategoryGrid } from "@/components/commerce/CategoryGrid";
 import { Reveal } from "@/components/motion/Reveal";
+import { ImageStreamHero } from "@/components/ui/image-stream-hero";
 import { cn } from "@/lib/utils";
+import laboratorio from "@/assets/laboratorio.jpg";
+import mantovaImg from "@/assets/mantova.jpg";
+import cocktail from "@/assets/cocktail.jpg";
+import mani from "@/assets/mani.jpg";
+
+const streamImages = [
+  ...featuredProducts.map((product) => ({
+    src: product.images[0],
+    alt: `Bottiglia ${product.name}`,
+  })),
+  { src: laboratorio, alt: "Laboratorio Regina Spirits" },
+  { src: cocktail, alt: "Cocktail Regina Spirits" },
+  { src: mantovaImg, alt: "Mantova" },
+  { src: mani, alt: "Lavorazione artigianale" },
+];
 
 function ProductBlock({ product, index }: { product: Product; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -35,7 +51,7 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
         <div className={cn("md:col-span-5", flip ? "md:order-1 md:col-start-1" : "md:col-start-8")}>
           <Reveal>
             <p className="eyebrow" style={{ color: product.accentColor }}>
-              {product.category}
+              {getCategoryName(product.category)}
             </p>
             <h3 className="display-md mt-4">{product.name}</h3>
             <p className="measure mt-5 text-muted-foreground">{product.shortDescription}</p>
@@ -72,28 +88,34 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
 
 export function ProductShowcase() {
   return (
-    <section aria-labelledby="prodotti-title">
-      <div className="page-x mx-auto max-w-[1440px] pb-6">
-        <Reveal>
-          <p className="eyebrow">Selezione</p>
-          <h2 id="prodotti-title" className="display-lg mt-6 max-w-[12ch]">
-            Quattro bottiglie.
-          </h2>
-        </Reveal>
-      </div>
-
-      {featuredProducts.map((product, i) => (
-        <ProductBlock key={product.id} product={product} index={i} />
-      ))}
-
-      <div className="page-x mx-auto max-w-[1440px] border-t border-border py-14">
-        <a
-          href={site.catalogUrl}
-          className="inline-flex min-h-12 items-center text-base underline underline-offset-8 decoration-bronzo"
+    <>
+      <section aria-labelledby="prodotti-title">
+        <ImageStreamHero
+          images={streamImages}
+          cards={9}
+          speed={20}
+          axis={52}
+          className="min-h-[70svh] w-full bg-ink text-background md:min-h-[80svh]"
         >
-          Scopri il catalogo completo
-        </a>
-      </div>
-    </section>
+          <div className="relative z-10 flex min-h-[70svh] flex-col items-center justify-center px-5 py-20 text-center md:min-h-[80svh]">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,color-mix(in_oklab,var(--ink)_55%,transparent)_30%,color-mix(in_oklab,var(--ink)_88%,transparent)_78%)]"
+            />
+            <div className="relative">
+              <p className="eyebrow text-background/60">I più venduti</p>
+              <h2 id="prodotti-title" className="display-lg mx-auto mt-6 max-w-[12ch]">
+                Quattro bottiglie.
+              </h2>
+            </div>
+          </div>
+        </ImageStreamHero>
+
+        {featuredProducts.map((product, i) => (
+          <ProductBlock key={product.id} product={product} index={i} />
+        ))}
+      </section>
+      <CategoryGrid />
+    </>
   );
 }

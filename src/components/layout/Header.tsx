@@ -1,15 +1,61 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, ShoppingBag, X } from "lucide-react";
+import { ChevronDown, Menu, ShoppingBag, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
 import { nav } from "@/data/site-content";
+import { categories } from "@/data/products";
 import { useCart } from "@/lib/cart";
 import { cn } from "@/lib/utils";
+
+function ProdottiDropdown({ overHero }: { overHero: boolean }) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const active = pathname.startsWith("/prodotti");
+
+  return (
+    <li className="group relative">
+      <Link
+        to="/prodotti"
+        className={cn(
+          "inline-flex items-center gap-1 text-[0.8rem] tracking-wide transition-opacity hover:opacity-60",
+          overHero ? "text-background" : "text-foreground",
+          active && "underline underline-offset-8 decoration-bronzo",
+        )}
+      >
+        Prodotti
+        <ChevronDown className="size-3.5 opacity-70 transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180" />
+      </Link>
+      <div className="invisible absolute left-1/2 top-full z-50 min-w-[17rem] -translate-x-1/2 pt-3 opacity-0 transition-[opacity,visibility] duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+        <ul className="rounded-sm border border-border bg-background py-2 text-foreground shadow-lg">
+          <li>
+            <Link
+              to="/prodotti"
+              className="flex min-h-11 items-center px-4 text-sm hover:bg-secondary"
+            >
+              Tutti i prodotti
+            </Link>
+          </li>
+          {categories.map((category) => (
+            <li key={category.slug}>
+              <Link
+                to="/prodotti/categorie/$slug"
+                params={{ slug: category.slug }}
+                className="flex min-h-11 items-center px-4 text-sm hover:bg-secondary"
+              >
+                {category.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </li>
+  );
+}
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [prodottiOpen, setProdottiOpen] = useState(false);
   const { count, openCart } = useCart();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const overHero = pathname === "/" && !scrolled;
@@ -21,7 +67,10 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => setMenuOpen(false), [pathname]);
+  useEffect(() => {
+    setMenuOpen(false);
+    setProdottiOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -55,20 +104,24 @@ export function Header() {
 
         <nav aria-label="Navigazione principale" className="hidden justify-center lg:flex">
           <ul className="flex items-center gap-7">
-            {nav.map((item) => (
-              <li key={item.to}>
-                <Link
-                  to={item.to}
-                  className={cn(
-                    "text-[0.8rem] tracking-wide transition-opacity hover:opacity-60",
-                    overHero ? "text-background" : "text-foreground",
-                  )}
-                  activeProps={{ className: "underline underline-offset-8 decoration-bronzo" }}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {nav.map((item) =>
+              item.to === "/prodotti" ? (
+                <ProdottiDropdown key={item.to} overHero={overHero} />
+              ) : (
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
+                    className={cn(
+                      "text-[0.8rem] tracking-wide transition-opacity hover:opacity-60",
+                      overHero ? "text-background" : "text-foreground",
+                    )}
+                    activeProps={{ className: "underline underline-offset-8 decoration-bronzo" }}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ),
+            )}
           </ul>
         </nav>
 
@@ -154,16 +207,67 @@ export function Header() {
               </div>
               <nav aria-label="Navigazione mobile" className="page-x flex-1 overflow-y-auto py-6">
                 <ul className="flex flex-col">
-                  {nav.map((item) => (
-                    <li key={item.to} className="border-b border-border">
-                      <Link
-                        to={item.to}
-                        className="flex min-h-14 items-center font-display text-2xl tracking-tight"
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
+                  {nav.map((item) =>
+                    item.to === "/prodotti" ? (
+                      <li key={item.to} className="border-b border-border">
+                        <div className="flex items-center justify-between">
+                          <Link
+                            to="/prodotti"
+                            className="flex min-h-14 flex-1 items-center font-display text-2xl tracking-tight"
+                          >
+                            Prodotti
+                          </Link>
+                          <button
+                            type="button"
+                            aria-expanded={prodottiOpen}
+                            aria-label={prodottiOpen ? "Chiudi le categorie" : "Apri le categorie"}
+                            onClick={() => setProdottiOpen((v) => !v)}
+                            className="grid size-11 place-items-center rounded-full hover:bg-secondary"
+                          >
+                            <ChevronDown
+                              className={cn(
+                                "size-5 transition-transform duration-300",
+                                prodottiOpen && "rotate-180",
+                              )}
+                              strokeWidth={1.5}
+                            />
+                          </button>
+                        </div>
+                        <AnimatePresence>
+                          {prodottiOpen && (
+                            <motion.ul
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.25 }}
+                              className="overflow-hidden pb-3"
+                            >
+                              {categories.map((category) => (
+                                <li key={category.slug}>
+                                  <Link
+                                    to="/prodotti/categorie/$slug"
+                                    params={{ slug: category.slug }}
+                                    className="flex min-h-11 items-center pl-1 text-sm text-muted-foreground"
+                                  >
+                                    {category.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </motion.ul>
+                          )}
+                        </AnimatePresence>
+                      </li>
+                    ) : (
+                      <li key={item.to} className="border-b border-border">
+                        <Link
+                          to={item.to}
+                          className="flex min-h-14 items-center font-display text-2xl tracking-tight"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ),
+                  )}
                 </ul>
                 <Link
                   to="/prodotti"

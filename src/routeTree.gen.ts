@@ -14,7 +14,6 @@ import { Route as CarrelloRouteImport } from './routes/carrello'
 import { Route as ChiSiamoRouteImport } from './routes/chi-siamo'
 import { Route as ContoTerziRouteImport } from './routes/conto-terzi'
 import { Route as CookieRouteImport } from './routes/cookie'
-import { Route as DoveTrovarciRouteImport } from './routes/dove-trovarci'
 import { Route as LaboratorioRouteImport } from './routes/laboratorio'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TerminiRouteImport } from './routes/termini'
@@ -26,6 +25,7 @@ import { Route as ProdottiSlugRouteImport } from './routes/prodotti.$slug'
 import { Route as StorieIndexRouteImport } from './routes/storie.index'
 import { Route as StorieSlugRouteImport } from './routes/storie.$slug'
 import { Route as ApiPublicStripeWebhookRouteImport } from './routes/api.public.stripe-webhook'
+import { Route as ProdottiCategorieSlugRouteImport } from './routes/prodotti.categorie.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -50,11 +50,6 @@ const ContoTerziRoute = ContoTerziRouteImport.update({
 const CookieRoute = CookieRouteImport.update({
   id: '/cookie',
   path: '/cookie',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DoveTrovarciRoute = DoveTrovarciRouteImport.update({
-  id: '/dove-trovarci',
-  path: '/dove-trovarci',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LaboratorioRoute = LaboratorioRouteImport.update({
@@ -112,6 +107,11 @@ const ApiPublicStripeWebhookRoute = ApiPublicStripeWebhookRouteImport.update({
   path: '/api/public/stripe-webhook',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProdottiCategorieSlugRoute = ProdottiCategorieSlugRouteImport.update({
+  id: '/prodotti/categorie/$slug',
+  path: '/prodotti/categorie/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -119,7 +119,6 @@ export interface FileRoutesByFullPath {
   '/chi-siamo': typeof ChiSiamoRoute
   '/conto-terzi': typeof ContoTerziRoute
   '/cookie': typeof CookieRoute
-  '/dove-trovarci': typeof DoveTrovarciRoute
   '/laboratorio': typeof LaboratorioRoute
   '/privacy': typeof PrivacyRoute
   '/termini': typeof TerminiRoute
@@ -131,6 +130,7 @@ export interface FileRoutesByFullPath {
   '/prodotti/': typeof ProdottiIndexRoute
   '/storie/': typeof StorieIndexRoute
   '/api/public/stripe-webhook': typeof ApiPublicStripeWebhookRoute
+  '/prodotti/categorie/$slug': typeof ProdottiCategorieSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -138,7 +138,6 @@ export interface FileRoutesByTo {
   '/chi-siamo': typeof ChiSiamoRoute
   '/conto-terzi': typeof ContoTerziRoute
   '/cookie': typeof CookieRoute
-  '/dove-trovarci': typeof DoveTrovarciRoute
   '/laboratorio': typeof LaboratorioRoute
   '/privacy': typeof PrivacyRoute
   '/termini': typeof TerminiRoute
@@ -150,6 +149,7 @@ export interface FileRoutesByTo {
   '/prodotti': typeof ProdottiIndexRoute
   '/storie': typeof StorieIndexRoute
   '/api/public/stripe-webhook': typeof ApiPublicStripeWebhookRoute
+  '/prodotti/categorie/$slug': typeof ProdottiCategorieSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -158,7 +158,6 @@ export interface FileRoutesById {
   '/chi-siamo': typeof ChiSiamoRoute
   '/conto-terzi': typeof ContoTerziRoute
   '/cookie': typeof CookieRoute
-  '/dove-trovarci': typeof DoveTrovarciRoute
   '/laboratorio': typeof LaboratorioRoute
   '/privacy': typeof PrivacyRoute
   '/termini': typeof TerminiRoute
@@ -170,6 +169,7 @@ export interface FileRoutesById {
   '/prodotti/': typeof ProdottiIndexRoute
   '/storie/': typeof StorieIndexRoute
   '/api/public/stripe-webhook': typeof ApiPublicStripeWebhookRoute
+  '/prodotti/categorie/$slug': typeof ProdottiCategorieSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -179,7 +179,6 @@ export interface FileRouteTypes {
     | '/chi-siamo'
     | '/conto-terzi'
     | '/cookie'
-    | '/dove-trovarci'
     | '/laboratorio'
     | '/privacy'
     | '/termini'
@@ -191,6 +190,7 @@ export interface FileRouteTypes {
     | '/prodotti/'
     | '/storie/'
     | '/api/public/stripe-webhook'
+    | '/prodotti/categorie/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -198,7 +198,6 @@ export interface FileRouteTypes {
     | '/chi-siamo'
     | '/conto-terzi'
     | '/cookie'
-    | '/dove-trovarci'
     | '/laboratorio'
     | '/privacy'
     | '/termini'
@@ -210,6 +209,7 @@ export interface FileRouteTypes {
     | '/prodotti'
     | '/storie'
     | '/api/public/stripe-webhook'
+    | '/prodotti/categorie/$slug'
   id:
     | '__root__'
     | '/'
@@ -217,7 +217,6 @@ export interface FileRouteTypes {
     | '/chi-siamo'
     | '/conto-terzi'
     | '/cookie'
-    | '/dove-trovarci'
     | '/laboratorio'
     | '/privacy'
     | '/termini'
@@ -229,6 +228,7 @@ export interface FileRouteTypes {
     | '/prodotti/'
     | '/storie/'
     | '/api/public/stripe-webhook'
+    | '/prodotti/categorie/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -237,7 +237,6 @@ export interface RootRouteChildren {
   ChiSiamoRoute: typeof ChiSiamoRoute
   ContoTerziRoute: typeof ContoTerziRoute
   CookieRoute: typeof CookieRoute
-  DoveTrovarciRoute: typeof DoveTrovarciRoute
   LaboratorioRoute: typeof LaboratorioRoute
   PrivacyRoute: typeof PrivacyRoute
   TerminiRoute: typeof TerminiRoute
@@ -249,6 +248,7 @@ export interface RootRouteChildren {
   ProdottiIndexRoute: typeof ProdottiIndexRoute
   StorieIndexRoute: typeof StorieIndexRoute
   ApiPublicStripeWebhookRoute: typeof ApiPublicStripeWebhookRoute
+  ProdottiCategorieSlugRoute: typeof ProdottiCategorieSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -286,13 +286,6 @@ declare module '@tanstack/react-router' {
       path: '/cookie'
       fullPath: '/cookie'
       preLoaderRoute: typeof CookieRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dove-trovarci': {
-      id: '/dove-trovarci'
-      path: '/dove-trovarci'
-      fullPath: '/dove-trovarci'
-      preLoaderRoute: typeof DoveTrovarciRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/laboratorio': {
@@ -372,6 +365,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicStripeWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/prodotti/categorie/$slug': {
+      id: '/prodotti/categorie/$slug'
+      path: '/prodotti/categorie/$slug'
+      fullPath: '/prodotti/categorie/$slug'
+      preLoaderRoute: typeof ProdottiCategorieSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -381,7 +381,6 @@ const rootRouteChildren: RootRouteChildren = {
   ChiSiamoRoute: ChiSiamoRoute,
   ContoTerziRoute: ContoTerziRoute,
   CookieRoute: CookieRoute,
-  DoveTrovarciRoute: DoveTrovarciRoute,
   LaboratorioRoute: LaboratorioRoute,
   PrivacyRoute: PrivacyRoute,
   TerminiRoute: TerminiRoute,
@@ -393,6 +392,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProdottiIndexRoute: ProdottiIndexRoute,
   StorieIndexRoute: StorieIndexRoute,
   ApiPublicStripeWebhookRoute: ApiPublicStripeWebhookRoute,
+  ProdottiCategorieSlugRoute: ProdottiCategorieSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

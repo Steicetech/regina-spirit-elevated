@@ -2,7 +2,6 @@ export const site = {
   name: "Regina Spirits",
   claim: "Mantova da Gustare",
   domain: "reginaspirits.com",
-  catalogUrl: "https://reginaspirits.com",
   eyebrow: "Liquorificio artigianale · Mantova",
   descrizione:
     "Dal 2004, gin, aperitivi e liquori creati nel nostro laboratorio di Pomponesco.",
@@ -16,7 +15,6 @@ export const nav = [
   { label: "Laboratorio", to: "/laboratorio" },
   { label: "Conto terzi", to: "/conto-terzi" },
   { label: "Storie", to: "/storie" },
-  { label: "Dove trovarci", to: "/dove-trovarci" },
 ] as const;
 
 export const legalNav = [

@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { formatPrice, getProductBySlug } from "@/data/products";
+import { formatPrice, getCategoryName, getProductBySlug } from "@/data/products";
 import { AddToCartButton } from "@/components/commerce/AddToCartButton";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/prodotti/$slug")({
     return {
       meta: [
         { title: `${product.name} — Regina Spirits` },
-        { name: "description", content: `${product.category}. ${product.shortDescription}` },
+        { name: "description", content: `${getCategoryName(product.category)}. ${product.shortDescription}` },
         { property: "og:title", content: `${product.name} — Regina Spirits` },
         { property: "og:description", content: product.shortDescription },
         { property: "og:type", content: "product" },
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/prodotti/$slug")({
             "@context": "https://schema.org",
             "@type": "Product",
             name: product.name,
-            category: product.category,
+            category: getCategoryName(product.category),
             brand: { "@type": "Brand", name: "Regina Spirits" },
           }),
         },
@@ -62,13 +62,14 @@ function ProductPage() {
         <div className="md:col-span-5 md:col-start-8">
           <Reveal>
             <Link
-              to="/prodotti"
+              to="/prodotti/categorie/$slug"
+              params={{ slug: product.category }}
               className="inline-flex min-h-10 items-center text-xs text-muted-foreground underline underline-offset-4"
             >
-              Tutti i prodotti
+              {getCategoryName(product.category)}
             </Link>
             <p className="eyebrow mt-6" style={{ color: product.accentColor }}>
-              {product.category}
+              {getCategoryName(product.category)}
             </p>
             <h1 className="display-md mt-3">{product.name}</h1>
             <p className="measure mt-6 text-muted-foreground">{product.fullDescription}</p>

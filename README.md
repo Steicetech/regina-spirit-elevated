@@ -24,7 +24,7 @@ bun run build    # build di produzione
 ## Struttura
 ```
 src/components/{ui,layout,sections,commerce,motion}
-src/data/{products,site-content,awards,stockists,stories}.ts
+src/data/{products,site-content,awards,stories}.ts
 src/routes            # pagine (file-based routing)
 src/lib               # carrello, checkout server function
 docs/content-needed.md

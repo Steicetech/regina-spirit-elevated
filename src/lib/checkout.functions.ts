@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { products } from "@/data/products";
+import { getCategoryName, products } from "@/data/products";
 
 /**
  * Crea una sessione Stripe Checkout (solo test mode).
@@ -48,7 +48,7 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
         price_data: {
           currency: "eur",
           unit_amount: Math.round(product.price * 100),
-          product_data: { name: product.name, description: product.category },
+          product_data: { name: product.name, description: getCategoryName(product.category) },
         },
       };
     });
