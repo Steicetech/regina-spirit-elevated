@@ -10,15 +10,31 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CarrelloRouteImport } from './routes/carrello'
 import { Route as ChiSiamoRouteImport } from './routes/chi-siamo'
 import { Route as ContoTerziRouteImport } from './routes/conto-terzi'
+import { Route as CookieRouteImport } from './routes/cookie'
+import { Route as DoveTrovarciRouteImport } from './routes/dove-trovarci'
 import { Route as LaboratorioRouteImport } from './routes/laboratorio'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as TerminiRouteImport } from './routes/termini'
+import { Route as CheckoutIndexRouteImport } from './routes/checkout.index'
+import { Route as CheckoutAnnullatoRouteImport } from './routes/checkout.annullato'
+import { Route as CheckoutSuccessoRouteImport } from './routes/checkout.successo'
 import { Route as ProdottiIndexRouteImport } from './routes/prodotti.index'
 import { Route as ProdottiSlugRouteImport } from './routes/prodotti.$slug'
+import { Route as StorieIndexRouteImport } from './routes/storie.index'
+import { Route as StorieSlugRouteImport } from './routes/storie.$slug'
+import { Route as ApiPublicStripeWebhookRouteImport } from './routes/api.public.stripe-webhook'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CarrelloRoute = CarrelloRouteImport.update({
+  id: '/carrello',
+  path: '/carrello',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChiSiamoRoute = ChiSiamoRouteImport.update({
@@ -31,9 +47,44 @@ const ContoTerziRoute = ContoTerziRouteImport.update({
   path: '/conto-terzi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CookieRoute = CookieRouteImport.update({
+  id: '/cookie',
+  path: '/cookie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DoveTrovarciRoute = DoveTrovarciRouteImport.update({
+  id: '/dove-trovarci',
+  path: '/dove-trovarci',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LaboratorioRoute = LaboratorioRouteImport.update({
   id: '/laboratorio',
   path: '/laboratorio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TerminiRoute = TerminiRouteImport.update({
+  id: '/termini',
+  path: '/termini',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutIndexRoute = CheckoutIndexRouteImport.update({
+  id: '/checkout/',
+  path: '/checkout/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutAnnullatoRoute = CheckoutAnnullatoRouteImport.update({
+  id: '/checkout/annullato',
+  path: '/checkout/annullato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutSuccessoRoute = CheckoutSuccessoRouteImport.update({
+  id: '/checkout/successo',
+  path: '/checkout/successo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProdottiIndexRoute = ProdottiIndexRouteImport.update({
@@ -46,66 +97,158 @@ const ProdottiSlugRoute = ProdottiSlugRouteImport.update({
   path: '/prodotti/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StorieIndexRoute = StorieIndexRouteImport.update({
+  id: '/storie/',
+  path: '/storie/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StorieSlugRoute = StorieSlugRouteImport.update({
+  id: '/storie/$slug',
+  path: '/storie/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicStripeWebhookRoute = ApiPublicStripeWebhookRouteImport.update({
+  id: '/api/public/stripe-webhook',
+  path: '/api/public/stripe-webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/carrello': typeof CarrelloRoute
   '/chi-siamo': typeof ChiSiamoRoute
   '/conto-terzi': typeof ContoTerziRoute
+  '/cookie': typeof CookieRoute
+  '/dove-trovarci': typeof DoveTrovarciRoute
   '/laboratorio': typeof LaboratorioRoute
+  '/privacy': typeof PrivacyRoute
+  '/termini': typeof TerminiRoute
+  '/checkout/annullato': typeof CheckoutAnnullatoRoute
+  '/checkout/successo': typeof CheckoutSuccessoRoute
   '/prodotti/$slug': typeof ProdottiSlugRoute
+  '/storie/$slug': typeof StorieSlugRoute
+  '/checkout/': typeof CheckoutIndexRoute
   '/prodotti/': typeof ProdottiIndexRoute
+  '/storie/': typeof StorieIndexRoute
+  '/api/public/stripe-webhook': typeof ApiPublicStripeWebhookRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/carrello': typeof CarrelloRoute
   '/chi-siamo': typeof ChiSiamoRoute
   '/conto-terzi': typeof ContoTerziRoute
+  '/cookie': typeof CookieRoute
+  '/dove-trovarci': typeof DoveTrovarciRoute
   '/laboratorio': typeof LaboratorioRoute
+  '/privacy': typeof PrivacyRoute
+  '/termini': typeof TerminiRoute
+  '/checkout/annullato': typeof CheckoutAnnullatoRoute
+  '/checkout/successo': typeof CheckoutSuccessoRoute
   '/prodotti/$slug': typeof ProdottiSlugRoute
+  '/storie/$slug': typeof StorieSlugRoute
+  '/checkout': typeof CheckoutIndexRoute
   '/prodotti': typeof ProdottiIndexRoute
+  '/storie': typeof StorieIndexRoute
+  '/api/public/stripe-webhook': typeof ApiPublicStripeWebhookRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/carrello': typeof CarrelloRoute
   '/chi-siamo': typeof ChiSiamoRoute
   '/conto-terzi': typeof ContoTerziRoute
+  '/cookie': typeof CookieRoute
+  '/dove-trovarci': typeof DoveTrovarciRoute
   '/laboratorio': typeof LaboratorioRoute
+  '/privacy': typeof PrivacyRoute
+  '/termini': typeof TerminiRoute
+  '/checkout/annullato': typeof CheckoutAnnullatoRoute
+  '/checkout/successo': typeof CheckoutSuccessoRoute
   '/prodotti/$slug': typeof ProdottiSlugRoute
+  '/storie/$slug': typeof StorieSlugRoute
+  '/checkout/': typeof CheckoutIndexRoute
   '/prodotti/': typeof ProdottiIndexRoute
+  '/storie/': typeof StorieIndexRoute
+  '/api/public/stripe-webhook': typeof ApiPublicStripeWebhookRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/carrello'
     | '/chi-siamo'
     | '/conto-terzi'
+    | '/cookie'
+    | '/dove-trovarci'
     | '/laboratorio'
+    | '/privacy'
+    | '/termini'
+    | '/checkout/annullato'
+    | '/checkout/successo'
     | '/prodotti/$slug'
+    | '/storie/$slug'
+    | '/checkout/'
     | '/prodotti/'
+    | '/storie/'
+    | '/api/public/stripe-webhook'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/carrello'
     | '/chi-siamo'
     | '/conto-terzi'
+    | '/cookie'
+    | '/dove-trovarci'
     | '/laboratorio'
+    | '/privacy'
+    | '/termini'
+    | '/checkout/annullato'
+    | '/checkout/successo'
     | '/prodotti/$slug'
+    | '/storie/$slug'
+    | '/checkout'
     | '/prodotti'
+    | '/storie'
+    | '/api/public/stripe-webhook'
   id:
     | '__root__'
     | '/'
+    | '/carrello'
     | '/chi-siamo'
     | '/conto-terzi'
+    | '/cookie'
+    | '/dove-trovarci'
     | '/laboratorio'
+    | '/privacy'
+    | '/termini'
+    | '/checkout/annullato'
+    | '/checkout/successo'
     | '/prodotti/$slug'
+    | '/storie/$slug'
+    | '/checkout/'
     | '/prodotti/'
+    | '/storie/'
+    | '/api/public/stripe-webhook'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CarrelloRoute: typeof CarrelloRoute
   ChiSiamoRoute: typeof ChiSiamoRoute
   ContoTerziRoute: typeof ContoTerziRoute
+  CookieRoute: typeof CookieRoute
+  DoveTrovarciRoute: typeof DoveTrovarciRoute
   LaboratorioRoute: typeof LaboratorioRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TerminiRoute: typeof TerminiRoute
+  CheckoutAnnullatoRoute: typeof CheckoutAnnullatoRoute
+  CheckoutSuccessoRoute: typeof CheckoutSuccessoRoute
   ProdottiSlugRoute: typeof ProdottiSlugRoute
+  StorieSlugRoute: typeof StorieSlugRoute
+  CheckoutIndexRoute: typeof CheckoutIndexRoute
   ProdottiIndexRoute: typeof ProdottiIndexRoute
+  StorieIndexRoute: typeof StorieIndexRoute
+  ApiPublicStripeWebhookRoute: typeof ApiPublicStripeWebhookRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -115,6 +258,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/carrello': {
+      id: '/carrello'
+      path: '/carrello'
+      fullPath: '/carrello'
+      preLoaderRoute: typeof CarrelloRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/chi-siamo': {
@@ -131,11 +281,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContoTerziRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cookie': {
+      id: '/cookie'
+      path: '/cookie'
+      fullPath: '/cookie'
+      preLoaderRoute: typeof CookieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dove-trovarci': {
+      id: '/dove-trovarci'
+      path: '/dove-trovarci'
+      fullPath: '/dove-trovarci'
+      preLoaderRoute: typeof DoveTrovarciRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/laboratorio': {
       id: '/laboratorio'
       path: '/laboratorio'
       fullPath: '/laboratorio'
       preLoaderRoute: typeof LaboratorioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/termini': {
+      id: '/termini'
+      path: '/termini'
+      fullPath: '/termini'
+      preLoaderRoute: typeof TerminiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout/': {
+      id: '/checkout/'
+      path: '/checkout'
+      fullPath: '/checkout/'
+      preLoaderRoute: typeof CheckoutIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout/annullato': {
+      id: '/checkout/annullato'
+      path: '/checkout/annullato'
+      fullPath: '/checkout/annullato'
+      preLoaderRoute: typeof CheckoutAnnullatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout/successo': {
+      id: '/checkout/successo'
+      path: '/checkout/successo'
+      fullPath: '/checkout/successo'
+      preLoaderRoute: typeof CheckoutSuccessoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/prodotti/': {
@@ -152,16 +351,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProdottiSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/storie/': {
+      id: '/storie/'
+      path: '/storie'
+      fullPath: '/storie/'
+      preLoaderRoute: typeof StorieIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/storie/$slug': {
+      id: '/storie/$slug'
+      path: '/storie/$slug'
+      fullPath: '/storie/$slug'
+      preLoaderRoute: typeof StorieSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/stripe-webhook': {
+      id: '/api/public/stripe-webhook'
+      path: '/api/public/stripe-webhook'
+      fullPath: '/api/public/stripe-webhook'
+      preLoaderRoute: typeof ApiPublicStripeWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CarrelloRoute: CarrelloRoute,
   ChiSiamoRoute: ChiSiamoRoute,
   ContoTerziRoute: ContoTerziRoute,
+  CookieRoute: CookieRoute,
+  DoveTrovarciRoute: DoveTrovarciRoute,
   LaboratorioRoute: LaboratorioRoute,
+  PrivacyRoute: PrivacyRoute,
+  TerminiRoute: TerminiRoute,
+  CheckoutAnnullatoRoute: CheckoutAnnullatoRoute,
+  CheckoutSuccessoRoute: CheckoutSuccessoRoute,
   ProdottiSlugRoute: ProdottiSlugRoute,
+  StorieSlugRoute: StorieSlugRoute,
+  CheckoutIndexRoute: CheckoutIndexRoute,
   ProdottiIndexRoute: ProdottiIndexRoute,
+  StorieIndexRoute: StorieIndexRoute,
+  ApiPublicStripeWebhookRoute: ApiPublicStripeWebhookRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,29 +1,36 @@
-# Welcome to your Lovable project
+# Regina Spirits — reginaspirits.com
 
-This project was built with [Lovable](https://lovable.dev).
+Sito del liquorificio artigianale Regina Spirits (Pomponesco, Mantova), concetto
+**Mantova da Gustare**. Interfaccia in italiano, editoriale, mobile-first.
 
-## Build with Lovable
+## Stack
+React 19 + TypeScript, TanStack Start/Router (router del progetto, sostituisce React Router),
+Tailwind CSS v4, shadcn/ui, Framer Motion, Lucide, Stripe Checkout (test mode).
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+## Installazione
+```bash
+bun install
+bun run dev      # http://localhost:8080
+bun run build    # build di produzione
 ```
 
-## Built with
+## Stripe (solo test)
+1. Copia `.env.example` in `.env`
+2. Inserisci `STRIPE_SECRET_KEY` (solo chiavi `sk_test_…`, altrimenti il checkout è bloccato)
+3. Webhook: `POST /api/public/stripe-webhook`, con `STRIPE_WEBHOOK_SECRET`
+4. I prezzi vengono validati lato server da `src/data/products.ts`: il client non li invia mai.
+   Con prezzo `0` il checkout resta disattivato finché i prezzi ufficiali non saranno confermati.
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+## Struttura
+```
+src/components/{ui,layout,sections,commerce,motion}
+src/data/{products,site-content,awards,stockists,stories}.ts
+src/routes            # pagine (file-based routing)
+src/lib               # carrello, checkout server function
+docs/content-needed.md
+```
+
+## Note
+- Age gate, cookie consent e carrello sono persistiti in localStorage.
+- La sezione premi è nascosta finché i dati non sono verificati.
+- Tutti i dati non confermati sono marcati `[DA CONFERMARE]`: nessuna informazione inventata.
