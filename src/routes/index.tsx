@@ -1,24 +1,51 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "@/components/sections/Hero";
+import { Intro } from "@/components/sections/Intro";
+import { ProductShowcase } from "@/components/sections/ProductShowcase";
+import { LabSection } from "@/components/sections/LabSection";
+import { AwardsSection } from "@/components/sections/AwardsSection";
+import { MantovaSection } from "@/components/sections/MantovaSection";
+import { StoriesSection } from "@/components/sections/StoriesSection";
+import { SocialSection } from "@/components/sections/SocialSection";
+import { NewsletterForm } from "@/components/sections/NewsletterForm";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Regina Spirits — Mantova da Gustare" },
+      {
+        name: "description",
+        content:
+          "Liquorificio artigianale a Pomponesco, Mantova. Dal 2004 gin, aperitivi e liquori creati nel nostro laboratorio.",
+      },
+      { property: "og:title", content: "Regina Spirits — Mantova da Gustare" },
+      {
+        property: "og:description",
+        content: "Gin, aperitivi e liquori artigianali dal laboratorio di Pomponesco, Mantova.",
+      },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Hero />
+      <Intro />
+      <ProductShowcase />
+      <LabSection />
+      <AwardsSection />
+      <MantovaSection />
+      <StoriesSection />
+      <SocialSection />
+      <section className="page-x mx-auto max-w-[1440px] border-t border-border py-20">
+        <div className="max-w-xl">
+          <NewsletterForm />
+        </div>
+      </section>
+    </>
   );
 }
