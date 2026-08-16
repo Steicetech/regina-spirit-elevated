@@ -26,7 +26,7 @@ Tutto ciò che è marcato `[DA CONFERMARE]` nel codice deve essere fornito dalla
 
 ## Immagini necessarie
 - Logo ufficiale in SVG (oggi header e age gate usano corona + wordmark)
-- **Priorità massima:** foto ufficiali delle quattro bottiglie in evidenza (Lotus Gin, Melon Gin, 46100, Cream Liqueur Melone). Oggi usano placeholder distinti.
+- **Priorità numero uno:** foto ufficiali delle quattro bottiglie in evidenza (Lotus Gin, Melon Gin, 46100, Cream Liqueur Melone). Il carosello in home riempie ogni card con la foto: i placeholder attuali (etichette illeggibili) diventano l'elemento dominante della pagina. Sostituirli è il primo contenuto da consegnare.
 - Foto reali dei fiori di loto del Lago Superiore / Mincio (la sezione in home usa `mantova.jpg` come sostituto)
 - Foto ufficiali delle 36 bottiglie a catalogo (nessuna è ancora `hasOfficialPhoto`)
 - Laboratorio: ambiente, processo, squadra, ingredienti
