@@ -8,7 +8,7 @@ export function MantovaSection() {
     <section className="page-x mx-auto max-w-[1440px] py-16 md:py-24">
       <Reveal>
         <p className="eyebrow eyebrow-rule">Territorio</p>
-        <h2 className="display-lg mt-6 max-w-[14ch]">Mantova da Gustare</h2>
+        <h2 className="display-lg mt-6 max-w-[14ch]">Il nostro territorio</h2>
         <p className="measure mt-8 text-muted-foreground">{mantovaIntro}</p>
       </Reveal>
       <div className="mt-14 grid gap-5 md:grid-cols-12">

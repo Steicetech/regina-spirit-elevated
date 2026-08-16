@@ -7,7 +7,6 @@ import { AwardsSection } from "@/components/sections/AwardsSection";
 import { MantovaSection } from "@/components/sections/MantovaSection";
 import { StoriesSection } from "@/components/sections/StoriesSection";
 import { SocialSection } from "@/components/sections/SocialSection";
-import { NewsletterForm } from "@/components/sections/NewsletterForm";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,11 +40,6 @@ function Home() {
       <MantovaSection />
       <StoriesSection />
       <SocialSection />
-      <section className="page-x mx-auto max-w-[1440px] border-t border-border py-20">
-        <div className="max-w-xl">
-          <NewsletterForm />
-        </div>
-      </section>
     </>
   );
 }

@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="bg-ink text-background">
       <div className="page-x mx-auto max-w-[1440px] py-16 md:py-24">
         <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
+          <div className="md:col-span-4">
             <Logo className="text-background" />
             <p className="measure mt-6 text-sm text-background/60">
               {site.claim} — liquorificio artigianale a {site.citta}.
@@ -16,7 +16,7 @@ export function Footer() {
             <p className="measure mt-4 text-xs text-background/50">{responsibleDrinking}</p>
           </div>
 
-          <nav aria-label="Navigazione footer" className="md:col-span-3">
+          <nav aria-label="Navigazione footer" className="md:col-span-2">
             <h2 className="eyebrow eyebrow-rule text-background/50">Naviga</h2>
             <ul className="mt-5 space-y-3">
               {nav.map((item) => (
@@ -32,7 +32,27 @@ export function Footer() {
             </ul>
           </nav>
 
-          <div className="md:col-span-4">
+          <div className="md:col-span-3">
+            <h2 className="eyebrow eyebrow-rule text-background/50">Contatti</h2>
+            <address className="mt-5 space-y-2 text-sm not-italic text-background/80">
+              <p>{site.indirizzo}</p>
+              <p>Tel. {site.telefono}</p>
+              <p>{site.email}</p>
+              <p>P.IVA {site.partitaIva}</p>
+            </address>
+            <p className="mt-6">
+              <a
+                href={site.socialUrl}
+                className="link-text inline-flex min-h-9 items-center text-sm text-background/80 hover:text-background"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Instagram {site.socialHandle}
+              </a>
+            </p>
+          </div>
+
+          <div className="md:col-span-3">
             <NewsletterForm variant="dark" />
           </div>
         </div>

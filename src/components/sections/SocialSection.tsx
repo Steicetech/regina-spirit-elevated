@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { socialCards, site } from "@/data/site-content";
-import { Play } from "lucide-react";
+import { Image as ImageIcon, Play } from "lucide-react";
 
 export function SocialSection() {
   return (
@@ -10,23 +10,32 @@ export function SocialSection() {
           <p className="eyebrow eyebrow-rule">Social</p>
           <h2 className="display-md mt-5">Dietro le quinte</h2>
         </Reveal>
-        <span className="inline-flex min-h-11 items-center text-sm text-muted-foreground">
+        <a
+          href={site.socialUrl}
+          className="link-text inline-flex min-h-11 items-center text-sm text-muted-foreground"
+          rel="noreferrer"
+          target="_blank"
+        >
           Segui Regina Spirits · {site.socialHandle}
-        </span>
+        </a>
       </div>
 
       <ul className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-5">
-        {socialCards.map((card, i) => (
-          <Reveal as="li" key={card.title} delay={i * 0.05}>
-            <div className="flex aspect-[9/16] flex-col justify-between rounded-sm border border-border bg-card p-4">
-              <Play className="size-4 text-muted-foreground" strokeWidth={1.5} />
-              <div>
-                <p className="eyebrow">{card.kind}</p>
-                <p className="mt-1 font-display text-base leading-tight">{card.title}</p>
+        {socialCards.map((card, i) => {
+          const Icon = card.kind === "Foto" ? ImageIcon : Play;
+          return (
+            <Reveal as="li" key={card.title} delay={i * 0.05}>
+              <div className="flex aspect-[9/16] flex-col justify-between rounded-sm bg-secondary p-4">
+                <Icon className="size-4 text-muted-foreground" strokeWidth={1.5} aria-hidden />
+                <div>
+                  <p className="eyebrow">{card.kind}</p>
+                  <p className="mt-1 font-display text-base leading-tight">{card.title}</p>
+                  <p className="mt-2 text-xs text-muted-foreground">Contenuto in arrivo</p>
+                </div>
               </div>
-            </div>
-          </Reveal>
-        ))}
+            </Reveal>
+          );
+        })}
       </ul>
     </section>
   );

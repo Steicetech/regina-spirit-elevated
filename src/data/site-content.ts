@@ -5,7 +5,12 @@ export const site = {
   eyebrow: "Liquorificio artigianale · Mantova",
   descrizione: "Dal 2004, gin, aperitivi e liquori creati nel nostro laboratorio di Pomponesco.",
   citta: "Pomponesco, Mantova",
+  indirizzo: "Via [DA CONFERMARE], Pomponesco (MN)",
+  telefono: "[DA CONFERMARE]",
+  email: "[DA CONFERMARE]",
+  partitaIva: "[DA CONFERMARE]",
   socialHandle: "[DA CONFERMARE]",
+  socialUrl: "https://www.instagram.com/[DA CONFERMARE]",
 };
 
 export const nav = [
