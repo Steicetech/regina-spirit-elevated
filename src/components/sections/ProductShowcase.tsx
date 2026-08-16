@@ -3,6 +3,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { useRef } from "react";
 import { featuredProducts, formatPrice, getCategoryName, type Product } from "@/data/products";
 import { AddToCartButton } from "@/components/commerce/AddToCartButton";
+import { ProductImage } from "@/components/commerce/ProductImage";
 import { CategoryGrid } from "@/components/commerce/CategoryGrid";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
@@ -23,15 +24,9 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
     >
       <div className="page-x mx-auto grid max-w-[1440px] items-center gap-10 md:grid-cols-12 md:gap-14">
         <div className={cn("md:col-span-6", flip && "md:order-2")}>
-          <motion.img
-            style={{ y }}
-            src={product.images[0]}
-            alt={`Bottiglia ${product.name}`}
-            width={1000}
-            height={1300}
-            loading="lazy"
-            className="mx-auto aspect-[4/5] w-full max-w-md rounded-sm object-cover md:max-w-none"
-          />
+          <motion.div style={{ y }} className="mx-auto w-full max-w-md md:max-w-none">
+            <ProductImage product={product} />
+          </motion.div>
         </div>
         <div className={cn("md:col-span-5", flip ? "md:order-1 md:col-start-1" : "md:col-start-8")}>
           <Reveal>

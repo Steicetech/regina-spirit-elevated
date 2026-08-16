@@ -52,6 +52,7 @@ export type Product = {
   servingSuggestions: string[];
   available: boolean;
   featured: boolean;
+  hasOfficialPhoto: boolean;
 };
 
 export const getCategory = (slug: string): Category | undefined =>
@@ -62,9 +63,9 @@ export const getCategoryName = (slug: CategorySlug) => getCategory(slug)?.name ?
 /**
  * I quattro prodotti più venduti restano in evidenza (featured: true).
  * Il resto del catalogo vive nelle quattro categorie.
- * Dati non confermati: [DA CONFERMARE]. Immagini: segnaposto.
+ * Dati non confermati: [DA CONFERMARE]. Nessuna foto ufficiale: hasOfficialPhoto = false.
  */
-export const products: Product[] = [
+const catalog: Omit<Product, "hasOfficialPhoto">[] = [
   {
     id: "prodotto-01",
     slug: "prodotto-01",
@@ -776,6 +777,11 @@ export const products: Product[] = [
     featured: false,
   },
 ];
+
+export const products: Product[] = catalog.map((p) => ({
+  ...p,
+  hasOfficialPhoto: false,
+}));
 
 export const featuredProducts = products.filter((p) => p.featured);
 

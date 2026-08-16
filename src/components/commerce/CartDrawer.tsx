@@ -4,6 +4,7 @@ import { Minus, Plus, ShoppingBag, X } from "lucide-react";
 import { useEffect } from "react";
 import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/data/products";
+import { ProductImage } from "@/components/commerce/ProductImage";
 import { Button } from "@/components/ui/button";
 
 export function CartDrawer() {
@@ -75,14 +76,9 @@ export function CartDrawer() {
                 <ul className="divide-y divide-border">
                   {items.map(({ product, quantity }) => (
                     <li key={product.id} className="flex gap-4 py-5">
-                      <img
-                        src={product.images[0]}
-                        alt={product.name}
-                        width={80}
-                        height={104}
-                        loading="lazy"
-                        className="h-26 w-20 shrink-0 rounded-sm bg-card object-cover"
-                      />
+                      <div className="w-20 shrink-0">
+                        <ProductImage product={product} sizes="thumb" />
+                      </div>
                       <div className="min-w-0 flex-1">
                         <p className="truncate font-display text-base">{product.name}</p>
                         <p className="text-xs text-muted-foreground">{product.category}</p>

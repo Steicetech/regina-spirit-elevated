@@ -3,6 +3,7 @@ import { Minus, Plus } from "lucide-react";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/data/products";
+import { ProductImage } from "@/components/commerce/ProductImage";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/carrello")({
@@ -39,14 +40,9 @@ function Carrello() {
             <ul className="divide-y divide-border border-y border-border lg:col-span-8">
               {items.map(({ product, quantity }) => (
                 <li key={product.id} className="flex gap-5 py-6">
-                  <img
-                    src={product.images[0]}
-                    alt={product.name}
-                    width={96}
-                    height={124}
-                    loading="lazy"
-                    className="w-24 shrink-0 rounded-sm object-cover"
-                  />
+                  <div className="w-24 shrink-0">
+                    <ProductImage product={product} sizes="thumb" />
+                  </div>
                   <div className="min-w-0 flex-1">
                     <p className="font-display text-lg">{product.name}</p>
                     <p className="text-xs text-muted-foreground">{product.category}</p>

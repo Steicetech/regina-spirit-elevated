@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { formatPrice, getCategoryName, getProductBySlug } from "@/data/products";
 import { AddToCartButton } from "@/components/commerce/AddToCartButton";
+import { ProductImage } from "@/components/commerce/ProductImage";
 import { Reveal } from "@/components/motion/Reveal";
 
 export const Route = createFileRoute("/prodotti/$slug")({
@@ -59,13 +60,7 @@ function ProductPage() {
     >
       <div className="page-x mx-auto grid max-w-[1440px] gap-12 md:grid-cols-12">
         <div className="md:col-span-6">
-          <img
-            src={product.images[0]}
-            alt={`Bottiglia ${product.name}`}
-            width={1000}
-            height={1300}
-            className="mx-auto aspect-[4/5] w-full max-w-md rounded-sm object-cover md:max-w-none"
-          />
+          <ProductImage product={product} className="mx-auto max-w-md md:max-w-none" />
         </div>
         <div className="md:col-span-5 md:col-start-8">
           <Reveal>

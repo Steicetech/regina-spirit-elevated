@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { AddToCartButton } from "@/components/commerce/AddToCartButton";
+import { ProductImage } from "@/components/commerce/ProductImage";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { formatPrice, getCategoryName, type Product } from "@/data/products";
@@ -15,13 +16,9 @@ export function ProductCard({ product, delay = 0 }: { product: Product; delay?: 
           backgroundColor: `color-mix(in oklab, ${product.accentColor} 6%, transparent)`,
         }}
       >
-        <img
-          src={product.images[0]}
-          alt={`Bottiglia ${product.name}`}
-          width={1000}
-          height={1300}
-          loading="lazy"
-          className="aspect-[4/5] w-full rounded-sm object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+        <ProductImage
+          product={product}
+          className="transition-transform duration-700 group-hover:scale-[1.02]"
         />
       </Link>
       <p className="eyebrow mt-5">{getCategoryName(product.category)}</p>

@@ -5,7 +5,7 @@ Tutto ciò che è marcato `[DA CONFERMARE]` nel codice deve essere fornito dalla
 ## Prodotti (`src/data/products.ts`)
 - Nomi reali dei 4 prodotti più venduti (ora PRODOTTO_01…04, `featured: true`)
 - Testi, prezzi, formati e gradazioni ancora marcati `[DA CONFERMARE]`
-- Fotografie ufficiali di bottiglie ed etichette (le attuali sono segnaposto)
+- **Fotografie ufficiali delle 36 bottiglie**: oggi `hasOfficialPhoto: false` per tutti. Senza foto ufficiale il sito mostra un blocco neutro (coroa + nome), mai la foto di un'altra bottiglia.
 - Verifica del resto del catalogo nelle quattro categorie
 
 ## Premi (`src/data/awards.ts`)
@@ -23,8 +23,8 @@ Tutto ciò che è marcato `[DA CONFERMARE]` nel codice deve essere fornito dalla
 - Privacy, cookie e termini definitivi (`src/routes/privacy|cookie|termini.tsx`)
 
 ## Immagini necessarie
-- Logo ufficiale in SVG (oggi il header usa un wordmark testuale)
-- 4 bottiglie su fondo avorio, dettagli etichette
+- Logo ufficiale in SVG (oggi header e age gate usano corona + wordmark)
+- Foto ufficiali delle 36 bottiglie a catalogo (nessuna è ancora `hasOfficialPhoto`)
 - Laboratorio: ambiente, processo, squadra, ingredienti
 - Mantova: acqua, architettura, tavola
 - Cocktail e aperitivo
