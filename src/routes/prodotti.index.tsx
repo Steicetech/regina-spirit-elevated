@@ -30,7 +30,7 @@ function ProdottiPage() {
     <div className="pb-24 pt-32 md:pt-44">
       <div className="page-x mx-auto max-w-[1440px]">
         <Reveal>
-          <p className="eyebrow">I più venduti</p>
+          <p className="eyebrow eyebrow-rule">I più venduti</p>
           <h1 className="display-lg mt-6 max-w-[16ch]">I quattro prodotti principali</h1>
         </Reveal>
         <ProductGrid products={featuredProducts} />

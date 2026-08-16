@@ -7,12 +7,12 @@ export function StoriesSection() {
     <section className="page-x mx-auto max-w-[1440px] border-t border-border py-24 md:py-32">
       <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
         <Reveal>
-          <p className="eyebrow">Storie</p>
+          <p className="eyebrow eyebrow-rule">Storie</p>
           <h2 className="display-md mt-5">Dal laboratorio e dal territorio</h2>
         </Reveal>
         <Link
           to="/storie"
-          className="inline-flex min-h-11 items-center text-sm underline underline-offset-8 decoration-bronzo"
+          className="inline-flex min-h-11 items-center text-sm underline decoration-bronzo underline-offset-8"
         >
           Tutte le storie
         </Link>

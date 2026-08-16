@@ -40,7 +40,7 @@ export function CookieConsent() {
             <p className="min-w-0 flex-1 text-sm text-muted-foreground">
               Usiamo cookie tecnici. Gli strumenti di analisi restano disattivati fino al tuo
               consenso.{" "}
-              <Link to="/cookie" className="underline underline-offset-4">
+              <Link to="/cookie" className="link-text underline">
                 Cookie policy
               </Link>
             </p>

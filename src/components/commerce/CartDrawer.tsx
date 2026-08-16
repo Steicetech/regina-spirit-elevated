@@ -111,7 +111,7 @@ export function CartDrawer() {
                           <button
                             type="button"
                             onClick={() => remove(product.id)}
-                            className="min-h-10 text-xs text-muted-foreground underline underline-offset-4"
+                            className="link-text min-h-10 text-xs text-muted-foreground"
                           >
                             Rimuovi
                           </button>

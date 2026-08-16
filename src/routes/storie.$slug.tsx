@@ -53,7 +53,7 @@ function StoryPage() {
   return (
     <article className="pb-24">
       <header className="page-x mx-auto max-w-[1440px] pt-32 md:pt-44">
-        <p className="eyebrow">
+        <p className="eyebrow eyebrow-rule">
           {story.category} ·{" "}
           {new Date(story.date).toLocaleDateString("it-IT", {
             day: "2-digit",
@@ -81,7 +81,7 @@ function StoryPage() {
 
         {related.length > 0 && (
           <section className="mt-20 border-t border-border pt-10">
-            <h2 className="eyebrow">Continua a leggere</h2>
+            <h2 className="eyebrow eyebrow-rule">Continua a leggere</h2>
             <ul className="mt-8 grid gap-8 md:grid-cols-2">
               {related.map((r) => (
                 <li key={r.slug}>

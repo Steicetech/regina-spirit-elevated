@@ -60,8 +60,8 @@
   --destructive-foreground: oklch(0.98 0.005 85);
   --border: oklch(0.865 0.012 85);
   --input: oklch(0.865 0.012 85);
-  --ring: oklch(0.585 0.083 65);
-  --bronzo: oklch(0.585 0.083 65);
+  --ring: oklch(0.52 0.085 65);
+  --bronzo: oklch(0.52 0.085 65);
   --bitter: oklch(0.42 0.13 30);
   --botanico: oklch(0.42 0.03 130);
   --ambra: oklch(0.62 0.135 50);
@@ -136,6 +136,23 @@
   text-transform: uppercase;
   color: var(--muted-foreground);
   font-weight: 500;
+}
+@utility eyebrow-rule {
+  &::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: var(--bronzo);
+    margin-bottom: 0.875rem;
+  }
+}
+@utility link-text {
+  text-underline-offset: 4px;
+  text-decoration-color: var(--bronzo);
+  &:hover {
+    text-decoration-line: underline;
+  }
 }
 @utility measure {
   max-width: 66ch;

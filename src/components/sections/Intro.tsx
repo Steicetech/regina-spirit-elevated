@@ -8,7 +8,7 @@ export function Intro() {
       <div className="grid gap-14 md:grid-cols-12 md:gap-10">
         <div className="md:col-span-7">
           <Reveal>
-            <p className="eyebrow">Chi siamo</p>
+            <p className="eyebrow eyebrow-rule">Chi siamo</p>
             <h2 className="display-lg mt-6 max-w-[14ch]">Un laboratorio, una misura precisa.</h2>
             <p className="measure mt-8 text-muted-foreground">{aboutIntro}</p>
           </Reveal>

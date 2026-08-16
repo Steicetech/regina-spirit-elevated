@@ -20,7 +20,7 @@ export function NewsletterForm({ variant = "light" }: { variant?: "light" | "dar
 
   return (
     <form onSubmit={onSubmit} noValidate>
-      <h2 className={cn("eyebrow", dark && "text-background/50")}>Newsletter</h2>
+      <h2 className={cn("eyebrow eyebrow-rule", dark && "text-background/50")}>Newsletter</h2>
       <p className={cn("mt-5 text-sm", dark ? "text-background/80" : "text-muted-foreground")}>
         Storie, prodotti e appuntamenti dal nostro laboratorio.
       </p>

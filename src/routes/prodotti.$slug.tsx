@@ -72,7 +72,7 @@ function ProductPage() {
             <Link
               to="/prodotti/categorie/$slug"
               params={{ slug: product.category }}
-              className="inline-flex min-h-10 items-center text-xs text-muted-foreground underline underline-offset-4"
+              className="link-text inline-flex min-h-10 items-center text-xs text-muted-foreground"
             >
               {getCategoryName(product.category)}
             </Link>

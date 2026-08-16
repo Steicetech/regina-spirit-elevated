@@ -11,7 +11,7 @@ export function LabSection() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <Reveal>
-              <p className="eyebrow text-background/50">Laboratorio</p>
+              <p className="eyebrow eyebrow-rule text-background/50">Laboratorio</p>
               <h2 className="display-lg mt-6">Pomponesco</h2>
               <p className="measure mt-8 text-background/70">{labIntro}</p>
               <Link

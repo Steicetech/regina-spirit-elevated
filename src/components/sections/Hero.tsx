@@ -18,7 +18,7 @@ export function Hero() {
             className="pointer-events-none absolute -inset-x-8 -inset-y-12 bg-[radial-gradient(ellipse_at_left,color-mix(in_oklab,var(--ink)_70%,transparent)_40%,transparent_75%)] md:hidden"
           />
           <motion.p
-            className="eyebrow relative text-background/60"
+            className="eyebrow eyebrow-rule relative text-background/60"
             {...fade}
             transition={{ duration: 0.7, delay: 0.08 }}
           >

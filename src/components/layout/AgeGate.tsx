@@ -95,7 +95,7 @@ export function AgeGate() {
             </button>
             <a
               href="https://www.google.com"
-              className="mt-5 inline-flex min-h-11 items-center text-xs text-muted-foreground underline underline-offset-4"
+              className="link-text mt-5 inline-flex min-h-11 items-center text-xs text-muted-foreground"
             >
               Non ho l'età, esci dal sito
             </a>

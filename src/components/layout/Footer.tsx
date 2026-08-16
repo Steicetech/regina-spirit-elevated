@@ -17,13 +17,13 @@ export function Footer() {
           </div>
 
           <nav aria-label="Navigazione footer" className="md:col-span-3">
-            <h2 className="eyebrow text-background/50">Naviga</h2>
+            <h2 className="eyebrow eyebrow-rule text-background/50">Naviga</h2>
             <ul className="mt-5 space-y-3">
               {nav.map((item) => (
                 <li key={item.to}>
                   <Link
                     to={item.to}
-                    className="inline-flex min-h-9 items-center text-sm text-background/80 hover:text-background"
+                    className="link-text inline-flex min-h-9 items-center text-sm text-background/80 hover:text-background"
                   >
                     {item.label}
                   </Link>
@@ -44,7 +44,7 @@ export function Footer() {
           <ul className="flex flex-wrap gap-6">
             {legalNav.map((item) => (
               <li key={item.to}>
-                <Link to={item.to} className="hover:text-background">
+                <Link to={item.to} className="link-text hover:text-background">
                   {item.label}
                 </Link>
               </li>

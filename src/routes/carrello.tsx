@@ -76,7 +76,7 @@ function Carrello() {
                       <button
                         type="button"
                         onClick={() => remove(product.id)}
-                        className="min-h-11 text-xs text-muted-foreground underline underline-offset-4"
+                        className="link-text min-h-11 text-xs text-muted-foreground"
                       >
                         Rimuovi
                       </button>

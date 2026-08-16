@@ -17,7 +17,7 @@ function ProdottiDropdown({ overHero }: { overHero: boolean }) {
       <Link
         to="/prodotti"
         className={cn(
-          "inline-flex items-center gap-1 text-[0.8rem] tracking-wide transition-opacity hover:opacity-60",
+          "inline-flex items-center gap-1 text-[0.8rem] tracking-wide transition-opacity hover:opacity-60 hover:underline hover:decoration-bronzo hover:underline-offset-8",
           overHero ? "text-background" : "text-foreground",
           active && "underline underline-offset-8 decoration-bronzo",
         )}
@@ -112,7 +112,7 @@ export function Header() {
                   <Link
                     to={item.to}
                     className={cn(
-                      "text-[0.8rem] tracking-wide transition-opacity hover:opacity-60",
+                      "text-[0.8rem] tracking-wide transition-opacity hover:opacity-60 hover:underline hover:decoration-bronzo hover:underline-offset-8",
                       overHero ? "text-background" : "text-foreground",
                     )}
                     activeProps={{ className: "underline underline-offset-8 decoration-bronzo" }}

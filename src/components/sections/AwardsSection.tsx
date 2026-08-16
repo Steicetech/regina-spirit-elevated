@@ -7,7 +7,7 @@ export function AwardsSection() {
   return (
     <section className="page-x mx-auto max-w-[1440px] border-t border-border py-24">
       <Reveal>
-        <p className="eyebrow">Riconoscimenti</p>
+        <p className="eyebrow eyebrow-rule">Riconoscimenti</p>
         <h2 className="display-md mt-5">Premi</h2>
       </Reveal>
       <ul className="mt-10 grid gap-8 md:grid-cols-2">

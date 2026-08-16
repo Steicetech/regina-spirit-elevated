@@ -15,7 +15,7 @@ export function CategoryGrid({
       className="page-x mx-auto max-w-[1440px] border-t border-border py-16 md:py-24"
     >
       <Reveal>
-        <p className="eyebrow">{eyebrow}</p>
+        <p className="eyebrow eyebrow-rule">{eyebrow}</p>
         <h2 id="categorie-title" className="display-lg mt-6 max-w-[14ch]">
           {title}
         </h2>
@@ -41,7 +41,7 @@ export function CategoryGrid({
                   {category.name}
                 </h3>
                 <p className="mt-3 flex-1 text-sm text-muted-foreground">{category.description}</p>
-                <span className="mt-8 inline-flex min-h-10 items-center text-sm underline underline-offset-8 decoration-bronzo">
+                <span className="mt-8 inline-flex min-h-10 items-center text-sm underline decoration-bronzo underline-offset-8">
                   Scopri
                 </span>
               </Link>

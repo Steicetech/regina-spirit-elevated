@@ -7,7 +7,7 @@ export function SocialSection() {
     <section className="page-x mx-auto max-w-[1440px] border-t border-border py-24 md:py-32">
       <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
         <Reveal>
-          <p className="eyebrow">Social</p>
+          <p className="eyebrow eyebrow-rule">Social</p>
           <h2 className="display-md mt-5">Dietro le quinte</h2>
         </Reveal>
         <span className="inline-flex min-h-11 items-center text-sm text-muted-foreground">

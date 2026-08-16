@@ -34,7 +34,10 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
         </div>
         <div className={cn("md:col-span-5", flip ? "md:order-1 md:col-start-1" : "md:col-start-8")}>
           <Reveal>
-            <p className="eyebrow" style={{ color: product.accentColor }}>
+            <p className="font-display text-5xl leading-none text-bronzo md:text-6xl">
+              {String(index + 1).padStart(2, "0")}
+            </p>
+            <p className="eyebrow mt-6" style={{ color: product.accentColor }}>
               {getCategoryName(product.category)}
             </p>
             <h3 className="display-md mt-4">{product.name}</h3>
@@ -76,7 +79,7 @@ export function ProductShowcase() {
       <section aria-labelledby="prodotti-title">
         <div className="page-x mx-auto max-w-[1440px] pb-6 pt-20 md:pt-28">
           <Reveal>
-            <p className="eyebrow">I più venduti</p>
+            <p className="eyebrow eyebrow-rule">I più venduti</p>
             <h2 id="prodotti-title" className="display-lg mt-6 max-w-[12ch]">
               Quattro bottiglie.
             </h2>
