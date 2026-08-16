@@ -52,7 +52,9 @@ export type Product = {
   servingSuggestions: string[];
   available: boolean;
   featured: boolean;
+  featuredRank?: number;
   hasOfficialPhoto: boolean;
+  isPlaceholder: boolean;
 };
 
 export const getCategory = (slug: string): Category | undefined =>
@@ -61,11 +63,11 @@ export const getCategory = (slug: string): Category | undefined =>
 export const getCategoryName = (slug: CategorySlug) => getCategory(slug)?.name ?? slug;
 
 /**
- * I quattro prodotti più venduti restano in evidenza (featured: true).
+ * I quattro più venduti (featuredRank 1–4): Lotus Gin, Melon Gin, 46100, Cream Liqueur Melone.
  * Il resto del catalogo vive nelle quattro categorie.
  * Dati non confermati: [DA CONFERMARE]. Nessuna foto ufficiale: hasOfficialPhoto = false.
  */
-const catalog: Omit<Product, "hasOfficialPhoto">[] = [
+const catalog: Omit<Product, "hasOfficialPhoto" | "isPlaceholder">[] = [
   {
     id: "prodotto-01",
     slug: "prodotto-01",
@@ -361,8 +363,8 @@ const catalog: Omit<Product, "hasOfficialPhoto">[] = [
       "Cream Liqueur al melone, prodotto artigianalmente a Mantova: 50 cl, 17% vol. Dolcezza vellutata da gustare liscia, con ghiaccio o in dessert.",
     price: 18,
     currency: "EUR",
-    volume: "[DA CONFERMARE]",
-    alcohol: "[DA CONFERMARE]",
+    volume: "50 cl",
+    alcohol: "17% vol",
     images: [bottles[3]],
     accentColor: "var(--bronzo)",
     tastingNotes: ["[DA CONFERMARE]"],
@@ -749,11 +751,11 @@ const catalog: Omit<Product, "hasOfficialPhoto">[] = [
     currency: "EUR",
     volume: "50 cl",
     alcohol: "40% vol",
-    images: [bottles[3]],
+    images: [bottles[1]],
     accentColor: "var(--botanico)",
     tastingNotes: ["[DA CONFERMARE]"],
     servingSuggestions: ["[DA CONFERMARE]"],
-    available: false,
+    available: true,
     featured: false,
   },
   {
@@ -778,19 +780,36 @@ const catalog: Omit<Product, "hasOfficialPhoto">[] = [
   },
 ];
 
-export const products: Product[] = catalog.map((p) => ({
-  ...p,
-  hasOfficialPhoto: false,
-}));
+const featuredRankById: Record<string, number> = {
+  "lotus-gin-con-fiore-di-loto": 1,
+  "melon-gin-mantuan-botanical": 2,
+  "46100-gin-premium": 3,
+  "cream-liqueur-melone-17": 4,
+};
 
-export const featuredProducts = products.filter((p) => p.featured);
+export const products: Product[] = catalog.map((p) => {
+  const featuredRank = featuredRankById[p.id];
+  return {
+    ...p,
+    hasOfficialPhoto: false,
+    isPlaceholder: p.id.startsWith("prodotto-"),
+    featured: featuredRank != null,
+    featuredRank,
+  };
+});
+
+export const featuredProducts = products
+  .filter((p) => p.featured)
+  .sort((a, b) => (a.featuredRank ?? 99) - (b.featuredRank ?? 99));
 
 export const getProductBySlug = (slug: string) => products.find((p) => p.slug === slug);
 
 export const getProductsByCategory = (slug: CategorySlug) =>
   products
-    .filter((p) => p.category === slug)
+    .filter((p) => p.category === slug && !p.isPlaceholder)
     .sort((a, b) => Number(b.featured) - Number(a.featured));
+
+export const hasConfirmedPrice = (product: Product) => product.price > 0;
 
 export const formatPrice = (value: number, currency: "EUR" = "EUR") =>
   value > 0

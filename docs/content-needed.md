@@ -3,9 +3,11 @@
 Tutto ciò che è marcato `[DA CONFERMARE]` nel codice deve essere fornito dalla Regina.
 
 ## Prodotti (`src/data/products.ts`)
-- Nomi reali dei 4 prodotti più venduti (ora PRODOTTO_01…04, `featured: true`)
+- I quattro più venduti: Lotus Gin, Melon Gin, 46100 GIN PREMIUM, Cream Liqueur Melone
+- **Lotus Gin** era `available: false`. Impostato a `true` perché è il prodotto di punta. Confermare con il cliente se è davvero in vendita.
 - Testi, prezzi, formati e gradazioni ancora marcati `[DA CONFERMARE]`
 - **Fotografie ufficiali delle 36 bottiglie**: oggi `hasOfficialPhoto: false` per tutti. Senza foto ufficiale il sito mostra un blocco neutro (coroa + nome), mai la foto di un'altra bottiglia.
+- I quattro più venduti usano per ora quattro placeholder distinti. Priorità massima: foto ufficiali di quelle quattro bottiglie.
 - Verifica del resto del catalogo nelle quattro categorie
 
 ## Premi (`src/data/awards.ts`)

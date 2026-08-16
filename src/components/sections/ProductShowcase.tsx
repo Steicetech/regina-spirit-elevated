@@ -1,7 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { featuredProducts, formatPrice, getCategoryName, type Product } from "@/data/products";
+import {
+  featuredProducts,
+  formatPrice,
+  getCategoryName,
+  hasConfirmedPrice,
+  type Product,
+} from "@/data/products";
 import { AddToCartButton } from "@/components/commerce/AddToCartButton";
 import { ProductImage } from "@/components/commerce/ProductImage";
 import { CategoryGrid } from "@/components/commerce/CategoryGrid";
@@ -9,7 +15,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-function ProductBlock({ product, index }: { product: Product; index: number }) {
+export function ProductBlock({ product, index }: { product: Product; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -25,7 +31,18 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
       <div className="page-x mx-auto grid max-w-[1440px] items-center gap-10 md:grid-cols-12 md:gap-14">
         <div className={cn("md:col-span-6", flip && "md:order-2")}>
           <motion.div style={{ y }} className="mx-auto w-full max-w-md md:max-w-none">
-            <ProductImage product={product} />
+            {product.featured && product.images[0] ? (
+              <img
+                src={product.images[0]}
+                alt={`Bottiglia ${product.name}`}
+                width={1000}
+                height={1300}
+                loading="lazy"
+                className="aspect-[4/5] w-full rounded-sm object-cover"
+              />
+            ) : (
+              <ProductImage product={product} />
+            )}
           </motion.div>
         </div>
         <div className={cn("md:col-span-5", flip ? "md:order-1 md:col-start-1" : "md:col-start-8")}>
@@ -49,7 +66,9 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
               </div>
               <div>
                 <dt className="eyebrow">Prezzo</dt>
-                <dd className="mt-1">{formatPrice(product.price)}</dd>
+                <dd className={cn("mt-1", !hasConfirmedPrice(product) && "text-muted-foreground")}>
+                  {formatPrice(product.price)}
+                </dd>
               </div>
             </dl>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -73,7 +92,7 @@ export function ProductShowcase() {
       <section aria-labelledby="prodotti-title">
         <div className="page-x mx-auto max-w-[1440px] pb-6 pt-20 md:pt-28">
           <Reveal>
-            <p className="eyebrow eyebrow-rule">I più venduti</p>
+            <p className="eyebrow">I più venduti</p>
             <h2 id="prodotti-title" className="display-lg mt-6 max-w-[12ch]">
               Quattro bottiglie.
             </h2>
