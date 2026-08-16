@@ -60,7 +60,6 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
       const session = await stripe.checkout.sessions.create({
         mode: "payment",
         line_items: lineItems,
-        automatic_payment_methods: { enabled: true },
         success_url: `${data.origin}/checkout/successo?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${data.origin}/checkout/annullato`,
       });

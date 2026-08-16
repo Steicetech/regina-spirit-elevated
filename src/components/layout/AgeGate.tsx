@@ -35,8 +35,8 @@ export function AgeGate() {
         'button, a[href], input, [tabindex]:not([tabindex="-1"])',
       );
       if (focusables.length === 0) return;
-      const first = focusables[0];
-      const last = focusables[focusables.length - 1];
+      const first = focusables[0]!;
+      const last = focusables[focusables.length - 1]!;
       if (e.shiftKey && document.activeElement === first) {
         e.preventDefault();
         last.focus();

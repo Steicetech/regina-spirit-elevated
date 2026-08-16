@@ -36,7 +36,7 @@ export const stockists: Stockist[] = cities.flatMap((city) =>
     name: `${type} — SEGNAPOSTO ${city} 0${i + 1}`,
     type,
     city,
-    province: provinceByCity[city],
+    province: provinceByCity[city] ?? "",
     address: "Indirizzo [DA CONFERMARE]",
     placeholder: true,
   })),
