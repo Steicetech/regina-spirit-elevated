@@ -89,6 +89,16 @@ export const contoTerziIntro =
 export const mantovaIntro =
   "Acqua, architettura, tavola. Mantova è il punto di partenza del nostro gusto e il modo in cui lo raccontiamo.";
 
+export const lotoCopy = {
+  eyebrow: "Il fiore di loto",
+  title: "Dal lago al gin.",
+  year: "1921",
+  lead: "I fiori di loto del Lago Superiore e del Mincio furono piantati nel 1921 dalla botanica Maria Pellegreffi. Sono diventati un simbolo di Mantova e fioriscono in estate. [DA CONFERMARE]",
+  body: "Da quella storia nasce il Lotus Gin. Regina Spirits è l'unica della regione a produrlo. [DA CONFERMARE]",
+  cta: "Scopri il Lotus Gin",
+  imageAlt: "Mantova sull'acqua. Foto dei fiori di loto ancora da sostituire. [DA CONFERMARE]",
+};
+
 export const socialCards = [
   { title: "Dal laboratorio", kind: "Video" },
   { title: "Cocktail", kind: "Reel" },

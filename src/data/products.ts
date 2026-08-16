@@ -53,6 +53,7 @@ export type Product = {
   available: boolean;
   featured: boolean;
   featuredRank?: number;
+  exclusive?: boolean;
   hasOfficialPhoto: boolean;
   isPlaceholder: boolean;
 };
@@ -67,7 +68,7 @@ export const getCategoryName = (slug: CategorySlug) => getCategory(slug)?.name ?
  * Il resto del catalogo vive nelle quattro categorie.
  * Dati non confermati: [DA CONFERMARE]. Nessuna foto ufficiale: hasOfficialPhoto = false.
  */
-const catalog: Omit<Product, "hasOfficialPhoto" | "isPlaceholder">[] = [
+const catalog: Omit<Product, "hasOfficialPhoto" | "isPlaceholder" | "exclusive">[] = [
   {
     id: "prodotto-01",
     slug: "prodotto-01",
@@ -787,6 +788,12 @@ const featuredRankById: Record<string, number> = {
   "cream-liqueur-melone-17": 4,
 };
 
+const exclusiveIds = new Set([
+  "lotus-gin-con-fiore-di-loto",
+  "melon-gin-mantuan-botanical",
+  "cream-liqueur-melone-17",
+]);
+
 export const products: Product[] = catalog.map((p) => {
   const featuredRank = featuredRankById[p.id];
   return {
@@ -795,6 +802,7 @@ export const products: Product[] = catalog.map((p) => {
     isPlaceholder: p.id.startsWith("prodotto-"),
     featured: featuredRank != null,
     featuredRank,
+    exclusive: exclusiveIds.has(p.id),
   };
 });
 

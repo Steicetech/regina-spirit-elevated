@@ -10,6 +10,7 @@ import {
 import { useRef, useState, type ReactNode } from "react";
 import { featuredProducts, formatPrice, hasConfirmedPrice, type Product } from "@/data/products";
 import { AddToCartButton } from "@/components/commerce/AddToCartButton";
+import { ExclusiveBadge } from "@/components/commerce/ExclusiveBadge";
 import { CategoryGrid } from "@/components/commerce/CategoryGrid";
 import { ProductBlock } from "@/components/sections/ProductShowcase";
 import { Reveal } from "@/components/motion/Reveal";
@@ -48,7 +49,14 @@ function FeaturedCopy({
       <p className="font-display text-6xl leading-none text-bronzo md:text-7xl">
         {String(index + 1).padStart(2, "0")}
       </p>
-      <h3 className="display-md mt-6 max-w-[14ch]">{product.name}</h3>
+      {product.exclusive && <ExclusiveBadge className="mt-6" onDark={onDark} />}
+      <h3
+        className={
+          product.exclusive ? "display-md mt-4 max-w-[14ch]" : "display-md mt-6 max-w-[14ch]"
+        }
+      >
+        {product.name}
+      </h3>
       <p
         className={cn(
           "measure mt-5 text-sm md:text-base",

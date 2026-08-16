@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { AddToCartButton } from "@/components/commerce/AddToCartButton";
+import { ExclusiveBadge } from "@/components/commerce/ExclusiveBadge";
 import { ProductImage } from "@/components/commerce/ProductImage";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
@@ -33,7 +34,10 @@ export function ProductCard({ product, delay = 0 }: { product: Product; delay?: 
           />
         )}
       </Link>
-      <p className="eyebrow mt-5">{getCategoryName(product.category)}</p>
+      {product.exclusive && <ExclusiveBadge className="mt-5" />}
+      <p className={product.exclusive ? "eyebrow mt-3" : "eyebrow mt-5"}>
+        {getCategoryName(product.category)}
+      </p>
       <h2 className="mt-2 font-display text-2xl font-normal tracking-tight">{product.name}</h2>
       <p className="mt-2 text-sm text-muted-foreground">
         {product.volume} · {product.alcohol}

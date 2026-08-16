@@ -9,6 +9,7 @@ import {
   type Product,
 } from "@/data/products";
 import { AddToCartButton } from "@/components/commerce/AddToCartButton";
+import { ExclusiveBadge } from "@/components/commerce/ExclusiveBadge";
 import { ProductImage } from "@/components/commerce/ProductImage";
 import { CategoryGrid } from "@/components/commerce/CategoryGrid";
 import { Reveal } from "@/components/motion/Reveal";
@@ -50,7 +51,11 @@ export function ProductBlock({ product, index }: { product: Product; index: numb
             <p className="font-display text-5xl leading-none text-bronzo md:text-6xl">
               {String(index + 1).padStart(2, "0")}
             </p>
-            <p className="eyebrow mt-6" style={{ color: product.accentColor }}>
+            {product.exclusive && <ExclusiveBadge className="mt-6" />}
+            <p
+              className={product.exclusive ? "eyebrow mt-3" : "eyebrow mt-6"}
+              style={{ color: product.accentColor }}
+            >
               {getCategoryName(product.category)}
             </p>
             <h3 className="display-md mt-4">{product.name}</h3>

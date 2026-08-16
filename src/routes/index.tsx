@@ -5,6 +5,7 @@ import { FeaturedShowcase } from "@/components/sections/FeaturedShowcase";
 import { LabSection } from "@/components/sections/LabSection";
 import { AwardsSection } from "@/components/sections/AwardsSection";
 import { MantovaSection } from "@/components/sections/MantovaSection";
+import { LotoSection } from "@/components/sections/LotoSection";
 import { StoriesSection } from "@/components/sections/StoriesSection";
 import { SocialSection } from "@/components/sections/SocialSection";
 
@@ -38,6 +39,7 @@ function Home() {
       <LabSection />
       <AwardsSection />
       <MantovaSection />
+      <LotoSection />
       <StoriesSection />
       <SocialSection />
     </>

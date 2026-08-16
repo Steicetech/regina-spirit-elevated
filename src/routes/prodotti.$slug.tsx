@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { formatPrice, getCategoryName, getProductBySlug } from "@/data/products";
+import { formatPrice, getCategoryName, getProductBySlug, hasConfirmedPrice } from "@/data/products";
 import { AddToCartButton } from "@/components/commerce/AddToCartButton";
+import { ExclusiveBadge } from "@/components/commerce/ExclusiveBadge";
 import { ProductImage } from "@/components/commerce/ProductImage";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -14,7 +15,7 @@ export const Route = createFileRoute("/prodotti/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Prodotto non trovato — Regina Spirits" },
+          { title: "Prodotto non trovato · Regina Spirits" },
           { name: "robots", content: "noindex" },
         ],
       };
@@ -22,12 +23,12 @@ export const Route = createFileRoute("/prodotti/$slug")({
     const { product } = loaderData;
     return {
       meta: [
-        { title: `${product.name} — Regina Spirits` },
+        { title: `${product.name} · Regina Spirits` },
         {
           name: "description",
           content: `${getCategoryName(product.category)}. ${product.shortDescription}`,
         },
-        { property: "og:title", content: `${product.name} — Regina Spirits` },
+        { property: "og:title", content: `${product.name} · Regina Spirits` },
         { property: "og:description", content: product.shortDescription },
         { property: "og:type", content: "product" },
         { property: "og:url", content: `/prodotti/${params.slug}` },
@@ -74,6 +75,7 @@ function ProductPage() {
             <p className="eyebrow mt-6" style={{ color: product.accentColor }}>
               {getCategoryName(product.category)}
             </p>
+            {product.exclusive && <ExclusiveBadge className="mt-5" />}
             <h1 className="display-md mt-3">{product.name}</h1>
             <p className="measure mt-6 text-muted-foreground">{product.fullDescription}</p>
 
@@ -88,7 +90,11 @@ function ProductPage() {
               </div>
               <div>
                 <dt className="eyebrow">Prezzo</dt>
-                <dd className="mt-1">{formatPrice(product.price)}</dd>
+                <dd
+                  className={`mt-1 ${!hasConfirmedPrice(product) ? "text-muted-foreground" : ""}`}
+                >
+                  {formatPrice(product.price)}
+                </dd>
               </div>
             </dl>
 
