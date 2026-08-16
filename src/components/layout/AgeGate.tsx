@@ -78,7 +78,7 @@ export function AgeGate() {
             aria-labelledby="age-gate-title"
             className="w-full max-w-md text-center"
           >
-            <Logo asLink={false} className="text-base" />
+            <Logo asLink={false} variant="stacked" />
             <h1 id="age-gate-title" className="display-md mt-10">
               Hai più di 18 anni?
             </h1>
