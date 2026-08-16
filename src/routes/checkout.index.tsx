@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/data/products";
 import { createCheckoutSession } from "@/lib/checkout.functions";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/checkout/")({
   head: () => ({
@@ -52,12 +53,9 @@ function Checkout() {
         {items.length === 0 ? (
           <div className="border-t border-border py-16">
             <p className="text-muted-foreground">Non ci sono articoli da acquistare.</p>
-            <Link
-              to="/prodotti"
-              className="mt-6 inline-flex min-h-12 items-center rounded-full bg-foreground px-7 text-sm text-background"
-            >
-              Scopri i prodotti
-            </Link>
+            <Button asChild variant="brand" size="lg" className="mt-6">
+              <Link to="/prodotti">Scopri i prodotti</Link>
+            </Button>
           </div>
         ) : (
           <div className="max-w-xl">
@@ -79,14 +77,16 @@ function Checkout() {
               <span>{formatPrice(subtotal)}</span>
             </div>
 
-            <button
+            <Button
               type="button"
+              variant="brand"
+              size="lg"
               onClick={paga}
               disabled={status === "loading"}
-              className="mt-8 min-h-12 w-full rounded-full bg-foreground px-8 text-sm text-background disabled:opacity-50 sm:w-auto"
+              className="mt-8 w-full sm:w-auto"
             >
               {status === "loading" ? "Reindirizzamento…" : "Paga con Stripe (test)"}
-            </button>
+            </Button>
 
             <p aria-live="polite" className="mt-4 text-sm text-destructive">
               {error}

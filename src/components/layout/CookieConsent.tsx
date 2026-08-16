@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const STORAGE_KEY = "regina-cookie-consent-v1";
 
@@ -45,20 +46,17 @@ export function CookieConsent() {
               </Link>
             </p>
             <div className="flex shrink-0 gap-2">
-              <button
+              <Button
                 type="button"
+                variant="brandOutline"
+                size="lg"
                 onClick={() => decide("rejected")}
-                className="min-h-11 rounded-full border border-border px-5 text-sm"
               >
                 Rifiuta
-              </button>
-              <button
-                type="button"
-                onClick={() => decide("accepted")}
-                className="min-h-11 rounded-full bg-foreground px-5 text-sm text-background"
-              >
+              </Button>
+              <Button type="button" variant="brand" size="lg" onClick={() => decide("accepted")}>
                 Accetta
-              </button>
+              </Button>
             </div>
           </div>
         </motion.div>

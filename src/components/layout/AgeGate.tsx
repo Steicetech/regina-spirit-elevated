@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Logo } from "./Logo";
+import { Button } from "@/components/ui/button";
 import { responsibleDrinking, site } from "@/data/site-content";
 
 const STORAGE_KEY = "regina-age-ok-v1";
@@ -85,14 +86,16 @@ export function AgeGate() {
             <p className="measure mx-auto mt-5 text-sm text-muted-foreground">
               {site.name} vende bevande alcoliche. L'accesso è riservato ai maggiorenni.
             </p>
-            <button
+            <Button
               ref={buttonRef}
               type="button"
+              variant="brand"
+              size="lg"
               onClick={confirm}
-              className="mt-9 flex min-h-12 w-full items-center justify-center rounded-full bg-foreground text-sm text-background transition-opacity hover:opacity-90"
+              className="mt-9 w-full"
             >
               Ho più di 18 anni
-            </button>
+            </Button>
             <a
               href="https://www.google.com"
               className="link-text mt-5 inline-flex min-h-11 items-center text-xs text-muted-foreground"

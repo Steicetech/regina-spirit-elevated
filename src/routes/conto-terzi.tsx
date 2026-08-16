@@ -3,6 +3,7 @@ import { useState } from "react";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Reveal } from "@/components/motion/Reveal";
 import { contoTerziIntro } from "@/data/site-content";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/conto-terzi")({
   head: () => ({
@@ -48,7 +49,7 @@ function ContoTerzi() {
   };
 
   const field =
-    "mt-2 min-h-12 w-full rounded-md border border-border bg-card px-4 text-sm outline-none";
+    "mt-2 min-h-12 w-full rounded-xs border border-border bg-card px-4 text-sm outline-none";
 
   return (
     <div className="pb-24">
@@ -135,13 +136,15 @@ function ContoTerzi() {
             </label>
 
             <div className="sm:col-span-2">
-              <button
+              <Button
                 type="submit"
+                variant="brand"
+                size="lg"
                 disabled={status === "loading"}
-                className="min-h-12 w-full rounded-full bg-foreground px-8 text-sm text-background disabled:opacity-50 sm:w-auto"
+                className="w-full sm:w-auto"
               >
                 {status === "loading" ? "Invio…" : "Parliamo del tuo progetto"}
-              </button>
+              </Button>
               <p aria-live="polite" className="mt-4 min-h-5 text-sm">
                 {status === "done" && "Grazie, abbiamo ricevuto la tua richiesta."}
                 {status === "error" && `Controlla i campi obbligatori: ${errors.join(", ")}.`}

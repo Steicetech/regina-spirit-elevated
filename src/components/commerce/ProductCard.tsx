@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { AddToCartButton } from "@/components/commerce/AddToCartButton";
 import { Reveal } from "@/components/motion/Reveal";
+import { Button } from "@/components/ui/button";
 import { formatPrice, getCategoryName, type Product } from "@/data/products";
 
 export function ProductCard({ product, delay = 0 }: { product: Product; delay?: number }) {
@@ -31,13 +32,11 @@ export function ProductCard({ product, delay = 0 }: { product: Product; delay?: 
       <p className="mt-1 text-sm">{formatPrice(product.price)}</p>
       <div className="mt-5 flex flex-col gap-2">
         <AddToCartButton product={product} className="w-full" />
-        <Link
-          to="/prodotti/$slug"
-          params={{ slug: product.slug }}
-          className="inline-flex min-h-12 items-center justify-center rounded-full border border-border px-6 text-sm"
-        >
-          Scopri
-        </Link>
+        <Button asChild variant="brandOutline" size="lg" className="w-full">
+          <Link to="/prodotti/$slug" params={{ slug: product.slug }}>
+            Scopri
+          </Link>
+        </Button>
       </div>
     </Reveal>
   );

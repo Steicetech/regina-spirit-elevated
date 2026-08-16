@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function NewsletterForm({ variant = "light" }: { variant?: "light" | "dark" }) {
@@ -38,7 +39,7 @@ export function NewsletterForm({ variant = "light" }: { variant?: "light" | "dar
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         className={cn(
-          "mt-5 min-h-12 w-full rounded-full border px-5 text-sm outline-none",
+          "mt-5 min-h-12 w-full rounded-xs border px-5 text-sm outline-none",
           dark
             ? "border-background/25 bg-transparent text-background placeholder:text-background/40"
             : "border-border bg-card",
@@ -57,16 +58,15 @@ export function NewsletterForm({ variant = "light" }: { variant?: "light" | "dar
         </span>
       </label>
 
-      <button
+      <Button
         type="submit"
+        variant="brand"
+        size="lg"
         disabled={status === "loading"}
-        className={cn(
-          "mt-5 min-h-12 w-full rounded-full text-sm transition-opacity hover:opacity-90 disabled:opacity-50 sm:w-auto sm:px-8",
-          dark ? "bg-background text-ink" : "bg-foreground text-background",
-        )}
+        className={cn("mt-5 w-full sm:w-auto", dark && "bg-background text-ink")}
       >
         {status === "loading" ? "Invio…" : "Iscriviti"}
-      </button>
+      </Button>
 
       <p
         aria-live="polite"

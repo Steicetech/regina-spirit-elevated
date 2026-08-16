@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/checkout/annullato")({
   head: () => ({
@@ -20,12 +21,9 @@ function Annullato() {
       <p className="measure mt-6 text-muted-foreground">
         Nessun addebito è stato effettuato. Il tuo carrello è ancora disponibile.
       </p>
-      <Link
-        to="/carrello"
-        className="mt-10 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-foreground px-7 text-sm text-background sm:w-auto sm:self-start"
-      >
-        Torna al carrello
-      </Link>
+      <Button asChild variant="brand" size="lg" className="mt-10 w-full sm:w-auto sm:self-start">
+        <Link to="/carrello">Torna al carrello</Link>
+      </Button>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { motion, useReducedMotion } from "framer-motion";
 import { site } from "@/data/site-content";
+import { Button } from "@/components/ui/button";
 import bottiglia01 from "@/assets/bottiglia-01.jpg";
 
 export function Hero() {
@@ -43,18 +44,17 @@ export function Hero() {
             {...fade}
             transition={{ duration: 0.7, delay: 0.34 }}
           >
-            <Link
-              to="/prodotti"
-              className="flex min-h-12 items-center justify-center rounded-full bg-background px-8 text-sm text-ink transition-opacity hover:opacity-90"
+            <Button asChild variant="brand" size="lg" className="bg-background text-ink">
+              <Link to="/prodotti">Scopri i prodotti</Link>
+            </Button>
+            <Button
+              asChild
+              variant="brandOutline"
+              size="lg"
+              className="border-background/40 text-background hover:bg-background/10 hover:text-background"
             >
-              Scopri i prodotti
-            </Link>
-            <Link
-              to="/laboratorio"
-              className="flex min-h-12 items-center justify-center rounded-full border border-background/40 px-8 text-sm text-background transition-colors hover:bg-background/10"
-            >
-              Conosci il laboratorio
-            </Link>
+              <Link to="/laboratorio">Conosci il laboratorio</Link>
+            </Button>
           </motion.div>
         </div>
 

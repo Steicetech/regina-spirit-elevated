@@ -4,6 +4,7 @@ import { Minus, Plus, ShoppingBag, X } from "lucide-react";
 import { useEffect } from "react";
 import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/data/products";
+import { Button } from "@/components/ui/button";
 
 export function CartDrawer() {
   const { isOpen, closeCart, items, subtotal, setQuantity, remove } = useCart();
@@ -64,13 +65,11 @@ export function CartDrawer() {
                 <div className="flex h-full flex-col items-center justify-center gap-4 text-center">
                   <ShoppingBag className="size-7 text-muted-foreground" strokeWidth={1.25} />
                   <p className="text-sm text-muted-foreground">Il tuo carrello è vuoto.</p>
-                  <Link
-                    to="/prodotti"
-                    onClick={closeCart}
-                    className="min-h-11 rounded-full border border-foreground px-6 text-sm leading-[2.75rem]"
-                  >
-                    Scopri i prodotti
-                  </Link>
+                  <Button asChild variant="brandOutline" size="lg">
+                    <Link to="/prodotti" onClick={closeCart}>
+                      Scopri i prodotti
+                    </Link>
+                  </Button>
                 </div>
               ) : (
                 <ul className="divide-y divide-border">
@@ -89,7 +88,7 @@ export function CartDrawer() {
                         <p className="text-xs text-muted-foreground">{product.category}</p>
                         <p className="mt-1 text-sm">{formatPrice(product.price)}</p>
                         <div className="mt-3 flex items-center gap-3">
-                          <div className="flex items-center rounded-full border border-border">
+                          <div className="flex items-center rounded-xs border border-border">
                             <button
                               type="button"
                               aria-label={`Riduci quantità di ${product.name}`}
@@ -129,13 +128,11 @@ export function CartDrawer() {
                   <span className="text-muted-foreground">Subtotale</span>
                   <span>{formatPrice(subtotal)}</span>
                 </div>
-                <Link
-                  to="/carrello"
-                  onClick={closeCart}
-                  className="mt-4 flex min-h-12 items-center justify-center rounded-full bg-foreground text-sm text-background"
-                >
-                  Vai al carrello
-                </Link>
+                <Button asChild variant="brand" size="lg" className="mt-4 w-full">
+                  <Link to="/carrello" onClick={closeCart}>
+                    Vai al carrello
+                  </Link>
+                </Button>
               </div>
             )}
           </motion.aside>

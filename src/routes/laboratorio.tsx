@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { MaskReveal, Reveal } from "@/components/motion/Reveal";
 import { ImageStreamHero } from "@/components/ui/image-stream-hero";
+import { Button } from "@/components/ui/button";
 import { labIntro } from "@/data/site-content";
 import laboratorio from "@/assets/laboratorio.jpg";
 import mani from "@/assets/mani.jpg";
@@ -92,12 +93,9 @@ function Laboratorio() {
         </div>
 
         <div className="mt-16 border-t border-border pt-10">
-          <Link
-            to="/conto-terzi"
-            className="inline-flex min-h-12 items-center rounded-full bg-foreground px-7 text-sm text-background"
-          >
-            Produzione conto terzi
-          </Link>
+          <Button asChild variant="brand" size="lg">
+            <Link to="/conto-terzi">Produzione conto terzi</Link>
+          </Button>
         </div>
       </div>
     </div>

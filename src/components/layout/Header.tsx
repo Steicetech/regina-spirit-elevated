@@ -6,6 +6,7 @@ import { Logo } from "./Logo";
 import { nav } from "@/data/site-content";
 import { categories } from "@/data/products";
 import { useCart } from "@/lib/cart";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 function ProdottiDropdown({ overHero }: { overHero: boolean }) {
@@ -126,17 +127,18 @@ export function Header() {
         </nav>
 
         <div className="flex items-center justify-end gap-1 sm:gap-2">
-          <Link
-            to="/prodotti"
+          <Button
+            asChild
+            variant="brandOutline"
+            size="lg"
             className={cn(
-              "hidden min-h-11 items-center rounded-full border px-5 text-[0.8rem] transition-colors sm:inline-flex",
-              overHero
-                ? "border-background/40 text-background hover:bg-background/10"
-                : "border-foreground text-foreground hover:bg-foreground hover:text-background",
+              "hidden min-h-11 px-5 text-[0.8rem] sm:inline-flex",
+              overHero &&
+                "border-background/40 text-background hover:bg-background/10 hover:text-background",
             )}
           >
-            Acquista
-          </Link>
+            <Link to="/prodotti">Acquista</Link>
+          </Button>
           <button
             type="button"
             onClick={openCart}
@@ -269,12 +271,9 @@ export function Header() {
                     ),
                   )}
                 </ul>
-                <Link
-                  to="/prodotti"
-                  className="mt-8 flex min-h-12 w-full items-center justify-center rounded-full bg-foreground text-sm text-background"
-                >
-                  Acquista
-                </Link>
+                <Button asChild variant="brand" size="lg" className="mt-8 w-full">
+                  <Link to="/prodotti">Acquista</Link>
+                </Button>
               </nav>
             </motion.div>
           </motion.div>

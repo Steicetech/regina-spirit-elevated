@@ -17,6 +17,7 @@ import { Footer } from "@/components/layout/Footer";
 import { AgeGate } from "@/components/layout/AgeGate";
 import { CookieConsent } from "@/components/layout/CookieConsent";
 import { CartDrawer } from "@/components/commerce/CartDrawer";
+import { Button } from "@/components/ui/button";
 
 function NotFoundComponent() {
   return (
@@ -26,12 +27,9 @@ function NotFoundComponent() {
         <p className="mt-4 text-sm text-muted-foreground">
           La pagina che cerchi non esiste o è stata spostata.
         </p>
-        <Link
-          to="/"
-          className="mt-8 inline-flex min-h-12 items-center rounded-full bg-foreground px-7 text-sm text-background"
-        >
-          Torna alla home
-        </Link>
+        <Button asChild variant="brand" size="lg" className="mt-8">
+          <Link to="/">Torna alla home</Link>
+        </Button>
       </div>
     </div>
   );
@@ -50,21 +48,19 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <h1 className="display-md">Qualcosa è andato storto</h1>
         <p className="mt-4 text-sm text-muted-foreground">Riprova o torna alla home page.</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <button
+          <Button
+            variant="brand"
+            size="lg"
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex min-h-12 items-center rounded-full bg-foreground px-7 text-sm text-background"
           >
             Riprova
-          </button>
-          <a
-            href="/"
-            className="inline-flex min-h-12 items-center rounded-full border border-border px-7 text-sm"
-          >
-            Home
-          </a>
+          </Button>
+          <Button asChild variant="brandOutline" size="lg">
+            <a href="/">Home</a>
+          </Button>
         </div>
       </div>
     </div>
@@ -145,7 +141,7 @@ function RootComponent() {
       <CartProvider>
         <a
           href="#contenuto"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:rounded-full focus:bg-foreground focus:px-5 focus:py-3 focus:text-sm focus:text-background"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:rounded-xs focus:bg-ink focus:px-5 focus:py-3 focus:text-sm focus:text-background"
         >
           Vai al contenuto
         </a>

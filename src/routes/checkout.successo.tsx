@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { useCart } from "@/lib/cart";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/checkout/successo")({
   head: () => ({
@@ -27,12 +28,9 @@ function Successo() {
       <p className="measure mt-6 text-muted-foreground">
         Il pagamento di test è andato a buon fine. Riceverai una conferma via email.
       </p>
-      <Link
-        to="/"
-        className="mt-10 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-foreground px-7 text-sm text-background sm:w-auto sm:self-start"
-      >
-        Torna alla home
-      </Link>
+      <Button asChild variant="brand" size="lg" className="mt-10 w-full sm:w-auto sm:self-start">
+        <Link to="/">Torna alla home</Link>
+      </Button>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { Minus, Plus } from "lucide-react";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/data/products";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/carrello")({
   head: () => ({
@@ -29,12 +30,9 @@ function Carrello() {
         {items.length === 0 ? (
           <div className="border-t border-border py-16">
             <p className="text-muted-foreground">Il tuo carrello è vuoto.</p>
-            <Link
-              to="/prodotti"
-              className="mt-6 inline-flex min-h-12 items-center rounded-full bg-foreground px-7 text-sm text-background"
-            >
-              Scopri i prodotti
-            </Link>
+            <Button asChild variant="brand" size="lg" className="mt-6">
+              <Link to="/prodotti">Scopri i prodotti</Link>
+            </Button>
           </div>
         ) : (
           <div className="grid gap-12 lg:grid-cols-12">
@@ -54,7 +52,7 @@ function Carrello() {
                     <p className="text-xs text-muted-foreground">{product.category}</p>
                     <p className="mt-1 text-sm">{formatPrice(product.price)}</p>
                     <div className="mt-4 flex flex-wrap items-center gap-4">
-                      <div className="flex items-center rounded-full border border-border">
+                      <div className="flex items-center rounded-xs border border-border">
                         <button
                           type="button"
                           aria-label={`Riduci ${product.name}`}
@@ -95,12 +93,9 @@ function Carrello() {
                 <p className="mt-3 text-xs text-muted-foreground">
                   Spedizione e imposte calcolate al checkout.
                 </p>
-                <Link
-                  to="/checkout"
-                  className="mt-6 flex min-h-12 items-center justify-center rounded-full bg-foreground text-sm text-background"
-                >
-                  Procedi al checkout
-                </Link>
+                <Button asChild variant="brand" size="lg" className="mt-6 w-full">
+                  <Link to="/checkout">Procedi al checkout</Link>
+                </Button>
               </div>
             </aside>
           </div>

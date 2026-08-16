@@ -5,6 +5,7 @@ import { featuredProducts, formatPrice, getCategoryName, type Product } from "@/
 import { AddToCartButton } from "@/components/commerce/AddToCartButton";
 import { CategoryGrid } from "@/components/commerce/CategoryGrid";
 import { Reveal } from "@/components/motion/Reveal";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 function ProductBlock({ product, index }: { product: Product; index: number }) {
@@ -57,13 +58,11 @@ function ProductBlock({ product, index }: { product: Product; index: number }) {
               </div>
             </dl>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
-                to="/prodotti/$slug"
-                params={{ slug: product.slug }}
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-7 text-sm transition-colors hover:bg-foreground hover:text-background"
-              >
-                Scopri
-              </Link>
+              <Button asChild variant="brandOutline" size="lg">
+                <Link to="/prodotti/$slug" params={{ slug: product.slug }}>
+                  Scopri
+                </Link>
+              </Button>
               <AddToCartButton product={product} className="w-full sm:w-auto" />
             </div>
           </Reveal>

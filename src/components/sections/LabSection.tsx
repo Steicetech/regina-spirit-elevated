@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { MaskReveal, Reveal } from "@/components/motion/Reveal";
+import { Button } from "@/components/ui/button";
 import { labIntro } from "@/data/site-content";
 import laboratorio from "@/assets/laboratorio.jpg";
 import mani from "@/assets/mani.jpg";
@@ -14,12 +15,14 @@ export function LabSection() {
               <p className="eyebrow eyebrow-rule text-background/50">Laboratorio</p>
               <h2 className="display-lg mt-6">Pomponesco</h2>
               <p className="measure mt-8 text-background/70">{labIntro}</p>
-              <Link
-                to="/laboratorio"
-                className="mt-9 inline-flex min-h-12 items-center rounded-full border border-background/40 px-7 text-sm transition-colors hover:bg-background/10"
+              <Button
+                asChild
+                variant="brandOutline"
+                size="lg"
+                className="mt-9 border-background/40 text-background hover:bg-background/10 hover:text-background"
               >
-                Entra nel laboratorio
-              </Link>
+                <Link to="/laboratorio">Entra nel laboratorio</Link>
+              </Button>
             </Reveal>
           </div>
           <div className="grid gap-5 md:col-span-7 md:grid-cols-2">
