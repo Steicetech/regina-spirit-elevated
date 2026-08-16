@@ -10,12 +10,30 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChiSiamoRouteImport } from './routes/chi-siamo'
+import { Route as ContoTerziRouteImport } from './routes/conto-terzi'
+import { Route as LaboratorioRouteImport } from './routes/laboratorio'
 import { Route as ProdottiIndexRouteImport } from './routes/prodotti.index'
 import { Route as ProdottiSlugRouteImport } from './routes/prodotti.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChiSiamoRoute = ChiSiamoRouteImport.update({
+  id: '/chi-siamo',
+  path: '/chi-siamo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContoTerziRoute = ContoTerziRouteImport.update({
+  id: '/conto-terzi',
+  path: '/conto-terzi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LaboratorioRoute = LaboratorioRouteImport.update({
+  id: '/laboratorio',
+  path: '/laboratorio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProdottiIndexRoute = ProdottiIndexRouteImport.update({
@@ -31,30 +49,61 @@ const ProdottiSlugRoute = ProdottiSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chi-siamo': typeof ChiSiamoRoute
+  '/conto-terzi': typeof ContoTerziRoute
+  '/laboratorio': typeof LaboratorioRoute
   '/prodotti/$slug': typeof ProdottiSlugRoute
   '/prodotti/': typeof ProdottiIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/chi-siamo': typeof ChiSiamoRoute
+  '/conto-terzi': typeof ContoTerziRoute
+  '/laboratorio': typeof LaboratorioRoute
   '/prodotti/$slug': typeof ProdottiSlugRoute
   '/prodotti': typeof ProdottiIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chi-siamo': typeof ChiSiamoRoute
+  '/conto-terzi': typeof ContoTerziRoute
+  '/laboratorio': typeof LaboratorioRoute
   '/prodotti/$slug': typeof ProdottiSlugRoute
   '/prodotti/': typeof ProdottiIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/prodotti/$slug' | '/prodotti/'
+  fullPaths:
+    | '/'
+    | '/chi-siamo'
+    | '/conto-terzi'
+    | '/laboratorio'
+    | '/prodotti/$slug'
+    | '/prodotti/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/prodotti/$slug' | '/prodotti'
-  id: '__root__' | '/' | '/prodotti/$slug' | '/prodotti/'
+  to:
+    | '/'
+    | '/chi-siamo'
+    | '/conto-terzi'
+    | '/laboratorio'
+    | '/prodotti/$slug'
+    | '/prodotti'
+  id:
+    | '__root__'
+    | '/'
+    | '/chi-siamo'
+    | '/conto-terzi'
+    | '/laboratorio'
+    | '/prodotti/$slug'
+    | '/prodotti/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChiSiamoRoute: typeof ChiSiamoRoute
+  ContoTerziRoute: typeof ContoTerziRoute
+  LaboratorioRoute: typeof LaboratorioRoute
   ProdottiSlugRoute: typeof ProdottiSlugRoute
   ProdottiIndexRoute: typeof ProdottiIndexRoute
 }
@@ -66,6 +115,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chi-siamo': {
+      id: '/chi-siamo'
+      path: '/chi-siamo'
+      fullPath: '/chi-siamo'
+      preLoaderRoute: typeof ChiSiamoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conto-terzi': {
+      id: '/conto-terzi'
+      path: '/conto-terzi'
+      fullPath: '/conto-terzi'
+      preLoaderRoute: typeof ContoTerziRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/laboratorio': {
+      id: '/laboratorio'
+      path: '/laboratorio'
+      fullPath: '/laboratorio'
+      preLoaderRoute: typeof LaboratorioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/prodotti/': {
@@ -87,6 +157,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChiSiamoRoute: ChiSiamoRoute,
+  ContoTerziRoute: ContoTerziRoute,
+  LaboratorioRoute: LaboratorioRoute,
   ProdottiSlugRoute: ProdottiSlugRoute,
   ProdottiIndexRoute: ProdottiIndexRoute,
 }
