@@ -1,10 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { MaskReveal, Reveal } from "@/components/motion/Reveal";
+import { ImageStreamHero } from "@/components/ui/image-stream-hero";
 import { labIntro } from "@/data/site-content";
 import laboratorio from "@/assets/laboratorio.jpg";
 import mani from "@/assets/mani.jpg";
 import cocktail from "@/assets/cocktail.jpg";
+import mantovaImg from "@/assets/mantova.jpg";
 
 export const Route = createFileRoute("/laboratorio")({
   head: () => ({
@@ -33,6 +35,18 @@ function Laboratorio() {
   return (
     <div className="pb-24">
       <PageHeader eyebrow="Laboratorio" title="Il luogo dove nasce tutto" intro={labIntro} />
+      <ImageStreamHero
+        images={[
+          { src: laboratorio, alt: "Il laboratorio Regina Spirits" },
+          { src: mani, alt: "Lavorazione delle botaniche" },
+          { src: cocktail, alt: "Il risultato nel bicchiere" },
+          { src: mantovaImg, alt: "Mantova" },
+        ]}
+        cards={8}
+        speed={36}
+        axis={50}
+        className="mx-auto mt-6 h-[52vh] min-h-[320px] w-full bg-ink md:h-[62vh]"
+      />
       <div className="page-x mx-auto max-w-[1440px]">
         <MaskReveal>
           <img
