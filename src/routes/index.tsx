@@ -11,13 +11,13 @@ import { SocialSection } from "@/components/sections/SocialSection";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Regina Spirits — Mantova da Gustare" },
+      { title: "Regina Spirits · Mantova da Gustare" },
       {
         name: "description",
         content:
           "Liquorificio artigianale a Pomponesco, Mantova. Dal 2004 gin, aperitivi e liquori creati nel nostro laboratorio.",
       },
-      { property: "og:title", content: "Regina Spirits — Mantova da Gustare" },
+      { property: "og:title", content: "Regina Spirits · Mantova da Gustare" },
       {
         property: "og:description",
         content: "Gin, aperitivi e liquori artigianali dal laboratorio di Pomponesco, Mantova.",
@@ -33,8 +33,8 @@ function Home() {
   return (
     <>
       <Hero />
-      <Intro />
       <ProductShowcase />
+      <Intro />
       <LabSection />
       <AwardsSection />
       <MantovaSection />
